@@ -1,0 +1,1510 @@
+--- Page 1 ---
+Jessie 8.1
+User’s handbook
+2025
+Simulation game created by Emmanuel Dion
+
+--- Page 2 ---
+Table of Contents
+Simulation game created by Emmanuel Dion ..................................................................... 1
+1 - Overview ................................................................................................................................ 4
+1.1 – Simulation principle ....................................................................................................... 4
+1.2 – Management disciplines covered .................................................................................. 4
+1.3 – Main concepts present in the simulation ...................................................................... 5
+1.4 - Simulation basics ............................................................................................................ 5
+2 - Decisions ................................................................................................................................ 6
+2.1 - Investments and Fixed Assets......................................................................................... 6
+2.2 - Production ...................................................................................................................... 9
+2.3 - Loans and cash management ......................................................................................... 9
+2.4 – Product positioning...................................................................................................... 10
+2.5 - Differentiation .............................................................................................................. 14
+2.6 - Product launches and discontinuations ....................................................................... 15
+2.7 - Price and build quality .................................................................................................. 17
+2.8 - Advertising .................................................................................................................... 21
+2.9 - Sales force ..................................................................................................................... 24
+2.10 - Customer credit .......................................................................................................... 24
+2.11 - Stock Exchange Transactions ...................................................................................... 25
+3 - Other important factors ...................................................................................................... 26
+3.1 – Customer brand loyalty ............................................................................................... 26
+3.2 - Stocks ............................................................................................................................ 27
+3.3 - Overhead Expenses ...................................................................................................... 27
+3.4 - Economic situation ....................................................................................................... 27
+3.5 – Marketing research ...................................................................................................... 27
+3.6 - Income Tax, Subsidies ................................................................................................... 28
+4 - Practical elements: example of a first period of play .......................................................... 28
+4.1 - Decision Sheet .............................................................................................................. 29
+General ................................................................................................................................. 29
+Loans ..................................................................................................................................... 30
+Securities .............................................................................................................................. 30
+Numbering ............................................................................................................................ 30
+Product Decisions ................................................................................................................. 30
+Sales force ............................................................................................................................. 30
+Customer Credit .................................................................................................................... 30
+2
+
+--- Page 3 ---
+Studies .................................................................................................................................. 30
+4.2 - Result sheets................................................................................................................. 31
+Product Feature Reminder ................................................................................................... 32
+General environment ............................................................................................................ 33
+Stock market operations ....................................................................................................... 33
+Analytical accounts ............................................................................................................... 33
+Income statement ................................................................................................................. 34
+Financing table ..................................................................................................................... 34
+Balance sheet........................................................................................................................ 34
+4.3 – Perceptual mapping ..................................................................................................... 34
+4.4 - Marketing mix analysis report and simulation ............................................................. 36
+Effects of the different variables in the mix .......................................................................... 36
+Effect of positioning .............................................................................................................. 40
+Effect of differentiation ......................................................................................................... 40
+Using the Table ..................................................................................................................... 41
+Elasticities ............................................................................................................................. 41
+5 - Bankers' Game ..................................................................................................................... 42
+6 - Alliances ............................................................................................................................... 43
+7 - Frequently Asked Questions ................................................................................................ 44
+8 - Archetypes of products suited for different segments........................................................ 49
+9 – Common mistakes .............................................................................................................. 50
+10 - Reminder of the main coefficients of the simulation ........................................................ 51
+3
+
+--- Page 4 ---
+1 - Overview
+1.1 – Simulation principle
+Jessie is a business simulation whose objective is to allow participants to progress in the
+mastery of marketing and strategic management tools, regardless of their previous level
+in the field. This objective was submitted, during the development of the specifications of
+the simulation and their computerized application, to the search for a compromise
+between simplicity (therefore playability) and complexity (therefore interest).
+Simplicity is present in simulation for the following reasons:
+• The decisions to be made are few and far between (about twenty per period of play)
+• A number of indications and automatic corrections naturally lead teams to
+reasonable options
+• In case of lack of imagination or self-confidence, participants can still make decisions
+mainly based on mimicry (imitation of the choice of the right teams)
+Complexity is present in simulation for the following reasons:
+• The set of parameters and functions taken into account in the simulation are much
+more important than the small number of decisions to be made might lead one to
+believe
+• The effects of the different decisions taken are interdependent (complexity is
+therefore not additive, but multiplicative)
+• The results include a significant amount of dependence on the decisions of other
+teams
+Jessie's simplicity allows everyone to participate, but its complexity makes the system
+impossible to control perfectly, even by an expert. In particular, there are no real "magic
+formulas" or "miracle recipes" (in technical terms, we speak of convergence zones) which,
+once discovered, would empty the simulation of its interest, and it is in the long term that
+it gives its full measure.
+1.2 – Management disciplines covered
+Although Jessie is primarily a simulation focused on marketing strategy, almost all
+management disciplines are attached to it, with the exception of tax system analysis:
+• finance through a large mechanism for the circulation of funds, which are the subject
+of a permanent arbitration between investment in economic activity and financial
+investments. We can add to this the usual financial management of the company:
+problems with customer credits, loans, cash flow, etc.
+• management control because it is useful for each company to question the relative
+contribution of each of its products and more generally on the usefulness of each of
+its decisions (to determine which, in the end, are profitable, and which are not)
+• accounting, since the reporting of results is mainly done in the classic form of
+traditional accounting entries (although simplified)
+• the management of human resources at the practical level of the decisions to be
+taken in small groups and the necessary conflicts to be resolved, the positions of the
+various parties being sometimes significantly different
+4
+
+--- Page 5 ---
+• the law, through the possibility offered to the participants, to enter into contractual
+agreements under the control of the facilitator
+• computer science because nothing prevents participants from trying to emulate the
+simulation computer program, to varying degrees of sophistication, for example using
+tools developed on spreadsheets.
+... and of course...
+• marketing in terms of decisions to be made about products and range (price,
+advertising, number of sales representatives, etc.)
+• the business strategy for the overall approach, the interaction of all the variables,
+and the negotiation with the other actors of the simulation.
+1.3 – Main concepts present in the simulation
+Here is an overview of the main concepts and theories used in the simulation:
+Marketing and strategy concepts:
+• The concept of range • The concept of differentiation
+management • The concept of psychological
+• The concept of life cycle pricing
+• The concept of positioning
+Concepts of economic theory:
+• The concept of elasticity • The concept of diminishing
+• The concept of economies of returns
+scale • The concept of threshold effect
+More general concepts:
+• The concept of risk • The concept of interaction
+• The concept of loyalty • The concept of alliance (through
+• The concept of coherence a direct exploitation of game
+• The concept of uncertainty theory)
+1.4 - Simulation basics
+On a practical level, the simulation consists of the following elements:
+• A market. To set the ideas, we can consider that this is the market for moisturizers
+in Switzerland in 2040, but this hypothesis is not really essential for the rest of the
+game
+• Two axes structuring this market.
+• Companies, banks and a stock exchange.
+The participants are, depending on their number, divided into:
+• 4 to 10 companies (ideally: 3 to 5 participants per company)
+• 1 to 4 banks (ideally: 2 to 4 bankers per bank)
+• The stock market, on the other hand, works automatically.
+The companies are all in the same situation at the beginning of the simulation. They do
+not yet have any activity but have capital that will allow them to immediately launch
+5
+
+--- Page 6 ---
+products on the market. Their balance sheet is so simplified that it contains only two
+elements:
+ASSETS LIABILITIES ans EQUITIES
+Cash 32 000 Common stock 32 000
+Table 1 – Company balance sheet at the beginning of the simulation
+At the same time, here is the banks' initial balance sheet:
+ASSETS LIABILITIES ans EQUITIES
+Cash 80 000 Common stock 80 000
+Table 2 - Bank balance sheet at the beginning of the simulation
+It may be noted at this stage that for reasons of simplification, no unit is indicated. If one
+absolutely wants to give a concrete meaning to the simulation, one can consider that it is
+KCHF (thousands of Swiss francs), but this assumption is not necessary. It may even be an
+obstacle to understanding the mechanisms of simulation. Also, in the rest of the manual,
+the units will be systematically omitted: the essential thing is that they always remain
+homogeneous with each other.
+Companies and banks will be confronting each other for a while. It is agreed that each
+period of play corresponds to a year in the life of the company (an accounting annuity,
+from the first of January to the following first January). The total number of periods can
+vary between 6 and 15.
+The objective is clear and the same for everyone: to maximize profit over the entire
+duration of the simulation, in accordance with the paradigm of the market economy.
+Since companies and banks have no freedom of action from the point of view of dividend
+payments (these being systematically equal to 50% of profits), the gains are measured
+very precisely by the statement of equity (items "capital", "reserves" and "carry-forward")
+on the liabilities side of the balance sheet. At the end of the simulation, the ranking of
+companies and banks is based on this single criterion, which must be considered as the
+common goal of all, to the exclusion of all others. As for the means to be used to achieve
+this goal, everyone is free to choose: safety or risk-taking, volume strategy or high-end
+strategy: everything is allowed, everything is organized in the simulation setting so that
+different paths can be taken. It's up to you to find them.
+2 - Decisions
+2.1 - Investments and Fixed Assets
+The level of tangible fixed assets (which are always referred to simply as "fixed assets" in
+the simulation, intangible assets are never named as such) directly determines the
+production capacity of companies according to the following cardinal rule:
+6
+
+--- Page 7 ---
+Total production capacity in period n = Amount of fixed assets at the start of period n /
+100
+Compliance with this equation is underpinned by the fact that depreciation is supposed
+to accurately reflect the obsolescence of the production tool, and consequently its
+reduction in capacity. The amount of fixed assets is therefore always adjusted to the
+quantity of products they produce.
+This production capacity must be understood for all products combined, as fixed assets
+are never considered to be dedicated to a specific product. We can notice, as was already
+the case above for monetary units, that the production units are not specified: they don't
+really matter, but if we take the example of the moisturizing cream market, we can
+assume that they are batches of 1000 boxes of 20 kilos.
+The type of depreciation used in the simulation is a bit special: it is a specific form of
+declining balance system, in which the depreciation rate, of 25% per year, acts on the
+total amount of residual net fixed assets. The following three equations are therefore
+always true:
+Amount of fixed assets at the start of period n = Amount of fixed assets from last
+balance sheet + investment of period n
+Depreciation period n = 0.25 x Amount of fixed assets at the beginning of period n
+Amount of fixed assets at the end of period n = 0.75 x Amount of fixed assets at the
+beginning of period n
+Investments in production, for their part, are free throughout the simulation, but they
+cannot take on a negative value (which would correspond, in spirit, to a sale of fixed
+assets).
+While this set of rules may seem restrictive at first, it quickly proves to be very easy to
+apply, and to have a certain accounting realism.
+Let's take an example: each company starts the simulation with a zero fixed asset amount.
+Its production capacity therefore depends only on the investment it decides to set for
+that period. If it wants to produce 200, it has to invest 20000. We will then have:
+Fixed asset end of period 0 = 0
+Production investment at the beginning of period 1 = 20000
+Fixed asset start of period 1 = Fixed asset end of period 0 + Investment in production start
+of period 1 = 0 + 20000 = 20000
+Production capacity period 1 = Fixed asset beginning of period 1 / 100 = 20000 / 100 =
+200
+Depreciation period 1 = 0.25 x 20000 = 5000
+7
+
+--- Page 8 ---
+Fixed asset end of period 1 = 0.75 x 20000 = 15000
+Comments: at the beginning, fixed assets (which should be thought of as physical
+production tools: machine tools, computer equipment, etc.) correspond exactly to the
+investment in production. Production capacity is therefore obtained by dividing one or
+the other by 100. On the other hand, at the end of the year, fixed assets have aged. They
+no longer allow us to produce as much for the following year. The decrease in capacity is
+directly proportional to the book value of depreciation, i.e. 25%. This leads to a situation
+where fixed assets are only worth 15000 at the end of the period, which corresponds to
+a residual production capacity of 150.
+In other words, if the company does not reinvest in period 2, it will only be able to produce
+150. If it wants to produce more (e.g. 240), it must reinvest an amount corresponding to
+the additional capacity it wants to obtain (here a capacity of 90, i.e. a production
+investment of 9000). Indeed, we will then have:
+Fixed asset start of period 2 = Fixed asset end of period 1 + Investment in production
+beginning of period 2 = 15000 + 9000 = 24000
+Production capacity period 2 = Fixed asset start of period 2 / 100 = 24000 / 100 = 240
+Depreciation period 2 = 0.25 x 24000 = 6000
+Fixed asset end of period 2 = 0.75 x 24000 = 18000
+And so on...
+Be careful : it is important to always invest in sufficient quantities to ensure the desired
+production. In the event of insufficient demand for production investment, a partial
+automatic adjustment (50%) is calculated by the computer program, but the level of
+production remains below the desired level, and stock shortages are to be feared. On the
+other hand, in the event of too much investment in production, the risk is that of
+overcapacity, which is paid for by depreciation disproportionate to sales (here too, an
+automatic adjustment is made by the program, but only for half of the error).
+In addition, the requested production investment is only granted if the cash position
+allows it. In the event that the cash flow (after the stock market movements at the
+beginning of the financial year) does not cover all the production investment requested,
+the surplus part is only half executed. This automatic correction of the program has the
+function of securing the accounts of imprudent companies by prohibiting them from
+overdrawing too large, but in return it limits their ability to produce, and consequently to
+make a profit.
+It is always necessary to remember to check the adequacy between the production
+objectives and the amount of fixed assets. On the one hand, they naturally tend to
+exhaust themselves "on their own", without us noticing, by the sole play of depreciation
+(25% being a high rate). On the other hand, the ease with which one can decide to invest
+8
+
+--- Page 9 ---
+risks making people forget that investments have a cost (in this case, the depreciation
+involved) that must be made profitable on pain of poor results.
+2.2 - Production
+The production of products is freely decided under the conditions indicated in the
+previous section. Fixed assets are freely reallocated to any of the products in the portfolio
+from one period to the next.
+The unit cost of production (assumed to represent the cost of raw materials consumed
+and labour allocated to production) is largely degressive according to the quantities
+produced (all products combined) in accordance with the principle of economies of scale.
+This cost before the allocation of the quality budget (see below) is the same for all the
+products of the same company, and at most equal to 50 per unit produced. If it cannot be
+known exactly a priori, the experience of the first periods helps to make an increasingly
+plausible evaluation as the simulation progresses, insofar as it is recalled each time on the
+results sheets. At the beginning of the simulation, it will be wise to count on a cost close
+to the maximum.
+The actual value of the production unit cost is shown in the profit and loss sheets, before
+and after the quality budget is allocated to the cost accounts. The overall production
+expenses appearing in the general income statement take into account both the cost of
+production and the quality budget.
+2.3 - Loans and cash management
+The investment can be financed by any means, starting of course with the company's
+equity. It is also possible, to cover the investment or for any other reason, to resort to
+borrowing.
+This borrowing can take two forms:
+• A loan negotiated with the bank(s) present in the simulation. Its rate and amount
+can be freely discussed and set between any bank and any company that finds it in
+their interest.
+• A usurious loan. It is systematically granted, regardless of its amount, to any
+company that requests it, but its rate is a major obstacle to systematic use. This rate
+is set at 16% (non-negotiable).
+Please note : these loans, whatever their form, can be renegotiated each year. They are
+not renewed by default. It is up to the teams to define their financial needs and borrow
+accordingly during each period of play. It is a common mistake among beginner teams to
+neglect this aspect, and to "forget" to renegotiate their loan(s) in period 2 or 3. The
+consequence is either a strongly negative cash flow (the liabilities are no longer sufficient
+to balance the assets once the bank loans have disappeared) and agios that largely
+penalize the accounting result in the following year, or an inability to invest in order to
+produce (see above).
+The loans run from January 2 to January 2. The balance sheets, which are published on
+the first of January, still take this into account even if they are running out. We must
+anticipate this imminent disappearance in the financial decisions to be taken for the
+coming period.
+9
+
+--- Page 10 ---
+In the event of positive cash flow after the movements at the beginning of the financial
+year (which include the variation in borrowing, investment in production and stock
+market movements), the balance gives rise to the payment of financial income at the rate
+of 5%. If there is a cash deficit, it causes significant interest (20%). Cash flow difficulties
+are not considered a sign of insolvency but a sign of lack of foresight. A chronically
+negative cash flow does not therefore give rise to sanctions other than those, already
+severe it is true, inflicted by the very high rate of agios.
+The month-to-month cash position is never taken into account in the simulation. The
+participants' only concern should be to break even at the beginning of the exercise,
+because it is on this indicator alone that the consequences are exerted in the context of
+the simulation.
+2.4 – Product positioning
+It is customary in the marketing world to represent the market in which you are working
+in the form of a plan called a mapping. Such a representation can be built from scientific
+techniques (data analysis techniques) that make it possible to summarize a much larger
+and more complex space in two dimensions. It can also be the result of a qualitative or
+intuitive analysis of the market. In this case, the approach is no longer very scientific, but
+it can take on a certain practical character.
+In this case, we will assume that the market analysis has uncovered the following two X
+and Y axes (see Fig. 1):
+• The X-axis opposes natural products on the left to chemicals on the right.
+• The Y-axis opposes generalist products at the top to specialized products at the
+bottom.
+Y=100
+General
+X=0 X=100
+Natural Synthetic
+Y=0
+Specific
+Figure 1 – Perceptual mapping of the market
+10
+
+--- Page 11 ---
+At the time of its launch, each product has a certain positioning. This positioning is
+expressed by the coordinates of the product on the two axes, X and Y, which allows it to
+be represented as a point in the XY plane.
+It is considered that the actual positioning may deviate somewhat from that decided by
+its designers. The small difference between the two testifies to the fact that a positioning
+is partly based on elements that cannot be perfectly controlled (image, packaging, etc.) It
+is a maximum of 4%.
+For example, if you have two products, you can, for example, position one of them in the
+middle (X=50, Y=50), and the other at the top left, as a rather generalist and natural
+product (X=25, Y=75 for example). Given the uncertainty described above, we can end up
+with a real positioning of X=48 and Y=53 in the first case, X=26 and Y=74 in the second
+case (these positions are shown in Figure 2).
+Y=100
+General
+Targeted positioning
+Positioning achieved
+Positioning achieved
+X=0 X=100
+Natural Synthetic
+Targeted positioning
+Y=0
+Specific
+Figure 2 – Examples of positioning
+You are absolutely free to position your products anywhere on the mapping, i.e. in the
+heart of a segment, at its margins or even between two segments or completely
+elsewhere. It is simply recommended to avoid extreme values (X or Y less than 3 or greater
+than 97), because because of the random shift, such a product would risk being "out of
+the zone" and selling very poorly.
+Warning : once a position has been acquired, it is still possible to change it later (by asking
+for a repositioning on a later decision sheet), but the change can only be made within
+certain limits (maximum 5 of offset in X and/or Y), and this option is expensive (500 per
+11
+
+--- Page 12 ---
+unit of shift, calculated in Euclidean distance between the old and the new position). It is
+therefore preferable to aim right from the start.
+It goes without saying that on mapping, the demand is not homogeneous. Some areas
+correspond to a higher potential demand. It can be said that the market is segmented.
+There are six segments of different sizes, shown in Figure 3. This figure is actually too
+schematic (for the purposes of the graphical representation). It is usual to consider
+segmentation as a neat operation, revealing clearly differentiated groups, because this
+presentation is clear. But in reality, a market, like a living fabric, is rarely made up of totally
+disjointed elements. It's just uneven, and the so-called segments are simply the areas of
+highest density.
+Figure 3 - Market Segmentation
+To be more precise, we can say that there is at each point of the mapping a variable
+intensity of potential demand, which is never zero. The effectiveness of a product's
+positioning is equivalent to the intensity of potential market demand at the exact location
+where it is positioned. It is not equal to the maximum value of demand at this point,
+because other factors are of course taken into account, but it allows the areas to be
+compared with each other. It is difficult to represent the intensity of each point in a
+100x100 matrix, but Table 3 gives a 20x20 approximation of this matrix, with a visual
+presentation (Figure 4). It's easy to make interpolations between tens (these
+interpolations are never misleading - there is no "crevice" in the middle of a "mountain").
+12
+
+--- Page 13 ---
+Table 3 – Intensity of demand (Efficiency of p o sitioning)
+Figure 4 - Positioning Efficiency
+13
+
+--- Page 14 ---
+2.5 - Differentiation
+From this presentation, one can immediately get the impression that the most
+advantageous positioning is the one that places the product at the heart of the most
+important segment. It's true... as long as other companies do not make the same
+calculation, because simulation is governed by a more powerful principle than that of
+positioning alone: the principle of differentiation. Indeed, a product only sells well if it is
+unrivalled. However, the more attractive a segment is, the more likely it is that it will be
+crowded.
+A given product is in order (see Table 4):
+• very strongly hampered by another product with a similar positioning on the
+mapping, and similar price and advertising levels
+• moderately bothered by a product with a similar positioning on the neighboring
+mapping, but with significantly different price and advertising levels
+• slightly hampered by a product with similar price and advertising levels, but with a
+significantly different positioning on the mapping
+• virtually unbothered by others
+Similar perceptual positioning Distinct perceptual positioning
+Similar price and Distinct price Similar price and Distinct price
+advertising and advertising advertising and advertising
+budget budget budget budget
+Major Medium Minor
+No disturbance
+disturbance disturbance disturbance
+Table 4 – Mutual disturbance between products on the market
+For the sake of completeness, it should be added that the annoyance still depends on the
+level of attractiveness of the product considered to be annoying. It makes sense that an
+attractive product would gain more customers over its rivals than a mediocre product.
+The discomfort exists regardless of the product considered. That is to say, two products
+of the same company can get in each other's way in the same way as two products of
+competing companies. To avoid this risk of cannibalization, it is important to ensure that
+you have a portfolio of products that are more complementary than rival.
+Because of the existence of these differentiation problems, we find ourselves in a
+dilemma inspired by game theory in relation to competing companies: either everyone
+blindly follows their interest... and this harms everyone, everyone converging in the same
+places, or... Companies are trying to find a more appropriate solution.
+What can this solution be? The "sharing of the cake" of course, i.e. the agreement
+between the different actors of the simulation to position the products in relation to each
+other without causing each other too much harm. It should be noted here that the
+simulation intentionally absent any legal authority enforcing any anti-cartel law. The
+option of absolute free competition (and not of organized free competition, as most
+states try to organize in real economic life) was deliberately chosen here to allow the
+14
+
+--- Page 15 ---
+participants to experiment without hesitation with the advantages and risks of alliance
+strategies.
+Who is responsible for organising a distribution of market areas? To no one in particular.
+There is no supervisory authority in the simulation that can play this role. On the other
+hand, any discussion between two, three or more companies is possible. Everyone will be
+able to make commitments to others and demand that they do the same. But all this
+construction will have to be part of a strategy of self-organized alliance.
+Commitments will be all the more difficult to keep as they will have to be made in an
+uncertain environment. As the positioning is marred by a certain inaccuracy, one can
+always argue that the hazard is to explain to one's partners/opponents a positioning that
+is more embarrassing (for them) than expected. But why would it be in our interest to
+betray our commitments? Simply because the effect of differentiation is such that if it is
+more advantageous for everyone to move away from the center of a segment, it is also
+more advantageous, once the center of this segment has been cleared, to place oneself
+back there!
+The situation could be schematized in a small matrix with the following form (Table 5):
+A is placed in the A shifts a little to one
+center side
+B is placed in the centre A sells 100 - B sells 100 A sells 90 - B sells 120
+B shifts a little to another A sells 110 - B sells
+A sells 120 - B sells 90
+side 110
+Note: these figures are given for information purposes only. Things are much more complicated in the
+simulation since other parameters (in particular the attractive power of each of the products and the offset
+distance) come into play
+Table 5 - Terms of Negotiation
+If we add to this the fact that an agreement of 3, 4, 5 or 6 is incomparably more difficult
+to organize and enforce than an agreement of 2, there is little hope that general and
+lasting collusion will appear in the simulation, even if it is encouraged by the interest of
+the participants themselves and by the present manual.
+2.6 - Product launches and discontinuations
+Throughout the simulation, companies can manage a variable number of products
+knowing that:
+• A maximum of two new products can be launched per game period
+• A maximum of two old products can be dropped per game period
+• The maximum range, for a given period of play, is 4 different products
+• It is possible, within the same period, to discontinue a product and immediately
+relaunch a new product with the same number
+The products have a variable commercial effectiveness depending on their age. In
+accordance with the concept of the life cycle, this efficiency varies according to the form
+below (Figure 5):
+15
+
+--- Page 16 ---
+Figure 5 – Relation of commercial efficiency with age
+On this curve as on those that follow, the absence of a scale is voluntary: it is through
+study or experience that it is up to the participants to discover this scale. It can
+nevertheless be said that for educational purposes, the ageing of products has been
+accelerated to the point of being clearly noticeable after a few periods.
+This criterion is more prescriptive in simulation than in reality, where many of the most
+famous consumer products notoriously invalidate the life cycle theory (Coca-Cola,
+Schweppes, The Laughing Cow, etc.). It is therefore imperative to take this into account
+and to know how to get rid of a product that has had its day, even if it has acquired a
+certain "sentimental" value. However, there is no need to fear any discontinuity in the
+obsolescence of the product. Ageing exists, of course; it is marked, certainly; But the
+demand for a product never suddenly falls to zero under this criterion alone; The right
+playtime to discontinue a product can vary depending on other variables, including
+competitive pressure in the same market area. Some products will be able to remain
+profitable for much longer than others...
+To account for a minimum of variability in the rate at which products age in the simulation,
+the effect of age is related to positioning in the following way: the more a product is
+perceived as generalist and chemical (which translates into a high X+Y positioning), the
+more sensitive it is to aging. This link between age and positioning is shown in Figure 6.
+16
+
+--- Page 17 ---
+Figure 6 - Relation of commercial efficiency with age and positioning
+Each launch gives rise to a fixed cost of 1000 (representing development expenses, the
+realization of prototypes, the costs of initial referencing, etc.). On the other hand, the
+abandonment of a product is free, but in this case the stocks, if any, are sold on invisible
+markets (foreign, destocking circuits, recycling) at a ridiculous price (25 per unit).
+Since the range will have to evolve continuously, it can be useful to think about the pace
+of launches at the beginning of the simulation so that a balanced product portfolio can
+be available at all times afterwards.
+2.7 - Price and build quality
+The manufacturing qualities and selling prices are independent for each of the company's
+products. It is considered possible (as is common in the detergent, hygiene or grocery
+markets) for the same company to manage products bearing brands that have nothing to
+do with the minds of consumers. This does not harm either the brand image of the
+products or that of the company, insofar as there is no synergy between the products
+apart from the fact that they share the same production tool.
+The prices shown are not prices per product, but per unit of production. For this reason,
+the acceptable price range in the simulation is often between 100 and 300.
+Price is the factor that most influences demand. However, if the price elasticity is very
+high for low price levels, it then softens. So there is a place for high-end products. The
+general model of the effect of price on demand is shown in Figure 7.
+17
+
+--- Page 18 ---
+t
+c
+e
+ff
+E
+Price
+Figure 7 – Relation of commercial efficiency with price
+It should be noted that the concept of psychological price appears implicitly in this figure:
+the first bump indicates the limit below which the product would hardly be bought
+because it was considered too bad; the second hump indicates the price above which one
+can hardly sell at all, the price being considered prohibitive.
+In addition, it can also be observed that the price elasticity of demand is not constant:
+there are areas of high elasticity (in which a small change in price causes a large change
+in demand, corresponding to the steepest parts of the curve) and areas of low elasticity
+(where it is obviously the other way around).
+As a result, we can define the interesting pricing strategies through Figure 8. In this figure,
+we can see that it is advisable to avoid the zones of positive elasticity (far to the left of
+the curve) or the bottom of the zones of strong negative elasticity. On the contrary, you
+should try to position yourself as far to the right as possible in areas of low elasticity.
+18
+
+--- Page 19 ---
+Figure 8 - Effective and Ineffective Pricing Policies
+As far as manufacturing quality is concerned, the market reaction is quite different, and
+can be represented by Figure 9:
+t
+c
+e
+ff
+E
+QQuuaallitity
+Figure 9 - Relation of commercial efficiency with quality
+Quality is expressed in the decision sheets by a quality budget in relation to the unit
+produced. This budget can be thought of as an additional production cost due to the
+purchase of better quality supplies, a longer assembly time, a greater requirement for
+19
+
+--- Page 20 ---
+discarded products, etc. The costs generated by the quality budget are also carried
+forward, for the publication of results, in production costs.
+The reaction curve shows that after a rather slow start, the quality of manufacture begins
+to produce interesting effects which, nevertheless, evolve rapidly according to
+diminishing returns. It is therefore necessary to find the ideal dosage leading to the
+production of articles of satisfactory quality without however exhausting oneself in over-
+quality (Figure 10).
+Figure 10 - Effective and Ineffective Quality Policies
+Be careful : price and quality sensitivities also depend on the positioning. Natural
+products (small X values) are less sensitive to price changes and more sensitive to quality
+than chemicals (large X values). Figures 11 and 11 bis provide a better idea of how,
+although the curves remain the same general pattern, a change in sensitivity to these
+variables can influence the market's reaction.
+20
+
+--- Page 21 ---
+Figure 11 – Relation of commercial efficiency with price and positioning
+Figure 11a - Relation of commercial efficiency with quality and positioning
+2.8 - Advertising
+In the same way as the price, the advertising budget is set independently for each
+product. This budget acts on sales according to an S-curve shown in Figures 12 to 14.
+21
+
+--- Page 22 ---
+t
+c
+e
+ff
+E
+Advertinsing
+Figure 12 - Relation of commercial efficiency with advertising
+At the beginning of this curve, there is no effect of advertising investments on demand.
+This is understandable for two reasons:
+• On the one hand, any advertising action involves fixed costs (in particular creative
+costs) which, on their own, do not generate any sales.
+• On the other hand, there is a minimum "cost of entry" in the crowded territory of
+advertising communication to the general public. To gain a foothold in the consumer's
+imagination, to exist in his eyes, you must have repeated his message a minimum of
+times. In terms of communication, there is what can be called a threshold effect:
+below a certain threshold, the effect is almost nil.
+Secondly, advertising is quickly effective, then its effect gradually becomes saturated,
+which generally corresponds to the fact that a market is never infinitely expandable, and
+in particular to the fact that advertising actions that are too repetitive end up having no
+marginal effect on sales (concept of diminishing returns). The first S-curve is more
+pronounced than the second, because the threshold effect is clearer than the effect of
+diminishing returns.
+It's important to note that zero ad budget doesn't mean zero sales. There are products
+that sell very well without advertising (and this in all levels of range). Setting an
+advertising budget at 0 can be a good calculation in areas of low advertising importance,
+or for a product in decline.
+What is obviously less desirable is to be positioned either right at the entrance of the S
+(you have just paid the entry costs, but you don't get any benefit from it) or too far to the
+right of the curve (you could get the same effect by spending less). These two undesirable
+cases are characterized by a low elasticity of advertising sales (the tangent to the S-curve
+is close to the horizontal, Figure 13).
+22
+
+--- Page 23 ---
+Figure 13 - Effective and Ineffective advertising policies
+Be careful : the sensitivity to advertising also depends on the positioning. Specialty
+products (small Y-values) are less sensitive to advertising than generalist products (large
+Y-values).
+Moreover, in accordance with what reality teaches, the sensitivity of a product to
+advertising varies according to its age : the younger a product is, the more it "needs"
+advertising (Figure 14).
+Figure 14 - Relation of commercial efficiency with advertising and positioning
+As the two effects have an impact on the effect of advertising (positioning and age) being
+cumulative, we can conclude that it is very difficult to launch a product at the top of the
+mapping without advertising, while a product at the end of its life cycle will sell
+advantageously without advertising at the bottom of the mapping, the intermediate
+situations being obviously more difficult to analyze.
+23
+
+--- Page 24 ---
+2.9 - Sales force
+It is considered that the product is already referenced by the major distributors, and that
+the cost of this referencing is included in the overhead costs (see above). However, we
+have the means to improve results by setting up a "field" sales force, made up of
+salespeople whose function is to develop sales at the local level, in particular by means
+of promotional agreements. The effectiveness of the sales force is shown in Figure 15.
+Figure 15 - Relation of commercial efficiency with the salesforce
+The element that appears on the x-axis is not the sales force's budget, but the number of
+sales representatives divided by the number of products put on sale (quantity produced
+plus stocks). The effectiveness of a salesperson is likely to be significantly different
+depending on whether he is available (he has few products to sell and can perform well
+on each one) or overwhelmed (he has too many, his unit performance decreases).
+It should be noted that unlike advertising, which is the subject of a budget per product,
+the sales force is common to the entire range. The choice of a more or less extensive sales
+force therefore involves the entire company.
+2.10 - Customer credit
+The decision to extend customer credit can also lead to improved sales. Its effect is shown
+in Figure 16.
+24
+
+--- Page 25 ---
+Figure 16 - Relation of commercial efficiency with customer credit
+Although this effect is less important than that of the other main variables, customer
+credit deserves particular interest because its immediate consequence, unlike the others,
+takes a financial rather than accounting form; It relates first to the working capital
+requirement, and only secondarily to the income statement, through financial expenses.
+As a result, the opportunity for a more or less long loan is sometimes more difficult to
+determine.
+In the same way as the sales force, customer credit is common to all of the company's
+products.
+2.11 - Stock Exchange Transactions
+In the simulation, it is possible to buy shares of your opponents. The capital of each
+company and each bank is available on the stock market in the form of 400 freely
+exchangeable securities (without voting rights, therefore without the possibility of taking
+control). Each of these securities entitles the holder to a corresponding fraction of the
+dividends paid in the event of profit (1/400 per share).
+In the rest of the simulation, the stock market quotes evolve according to:
+• of the results of the listed company. A good result makes the stock go up, a bad
+result makes it go down. This result is considered in the simulation both for its
+absolute value, and for its value in relation to the capitalized value of the company,
+as is generally the case in real economic life through the PER.
+• of the more or less strong demand for the stock. High demand drives the stock up,
+weak or non-existent demand gradually lowers it. However, the demand taken into
+account is reduced to that which can actually be served. It is therefore useless, if you
+own all the shares of a company, to continue to ask for them in order to artificially
+increase its price.
+At each period of play, the new odds are made public. Decisions to buy or sell are executed
+on this basis. In the event that the demand for a permit is greater than the total available,
+this available total is distributed among the applicants on a pro-rata basis based on the
+application.
+25
+
+--- Page 26 ---
+It is not possible to buy the securities of your own company (or bank). On the other
+hand, it is possible to engage in cross-shareholdings with partner companies, in particular
+in the context of the creation of alliances on other aspects (market agreements).
+Capital gains and losses are only recognised when the shares are resold. They are taxed
+at the same rate as all profits. Pending their resale, the shares are valued on the balance
+sheet at their purchase price. Thus, even if the capitalized value of the securities in the
+portfolio appears for information in the income sheets, it has no book value until these
+securities are sold. All securities will nevertheless be valued at their final price during the
+final period of play so that all capital gains and losses are integrated into the final result.
+In addition, the ownership of securities gives rise to the payment of dividends. The rule is
+that any company that makes a profit puts 50% of its net profit in reserve and distributes
+50% of it in the form of dividends. These dividends are divided into 400 shares
+corresponding to the 400 shares of the company present in the simulation. They are paid
+with a staggered annuity to avoid circular, accounting as well as IT references.
+3 - Other important factors
+3.1 – Customer brand loyalty
+The demand for a product does not depend only on the factors mentioned above. Or
+rather, it does not depend solely on these factors observed over the period under
+consideration.
+The application is actually made up of two elements:
+• an attraction effect that depends on the factors of the current period (this is the
+most important element)
+• a loyalty effect (which plays a secondary role) which in turn depends on two factors:
+o how these factors may have been effective in the past (hysteresis factor)
+o the consistency of the pricing policy from one period to the next (a strong
+price variation tends to reduce loyalty while on the contrary a constant price
+favours it)
+Although the concept of a "cash cow" cannot really be considered valid in the simulation,
+it can still be considered that the marketing mix of a product benefits from evolving
+according to its position in its life cycle. In particular, greater commercial aggressiveness
+at the time of the launch of a given product may make it possible to win customers who,
+once loyal, will remain partially captive even in the event of a decrease in attractiveness
+(slight increase in price, slight decrease in advertising, etc.). However, such a rule should
+be taken with caution. Indeed, if loyalty exists in the simulation, it plays a limited role, and
+it is better to keep in mind the image of disloyal consumers always ready to switch brands
+rather than loyal consumers who are easy to exploit once conquered.
+In any case, if you want to keep your loyal consumers, a price increase will benefit from
+being made gradually to avoid inconsistency problems. On the other hand, in the case of
+a product that sells poorly from the moment of its launch, the entire mix can be brutally
+modified: you only risk losing the loyal ones, and if they are few in number, they should
+not be an obstacle to the "relaunch" of the product towards new targets.
+26
+
+--- Page 27 ---
+3.2 - Stocks
+Unsold units are automatically placed in stock. Their valuation is then based on 50 per
+unit. The storage itself results in a cost of $4 per unit in stock per play period. This storage
+cost is deducted from the income statement in the following period.
+3.3 - Overhead Expenses
+Every company generates overhead. Their amount is 2000 plus 1000 per product in the
+range. This incremental increase includes increases related to the presence of a product
+manager, an additional line in production, etc. For banks, the general costs are set at 4000,
+and cover in particular a non-cancellable subscription to the panel.
+While these overhead costs are negligible for companies with significant economic
+activity, they can be more inconvenient for companies with a small turnover.
+3.4 - Economic situation
+The entire game world is collectively affected by a business index, expressed as a
+percentage in the result sheets. This index should be understood as a multiplier that
+applies to the demand for each product. A business index of +2% affects all applications
+with a coefficient of 1.02. A business index of -5% with a coefficient of 0.95. Etc.
+The economic index mentioned in the results sheets does not refer to the coming period,
+but to the past period. However, since the evolution of this index is not surprising and is
+limited to a few points per period of play, it is not difficult to predict its probable future
+value based on an extrapolation from the past.
+In addition, the simulation takes place without inflation.
+3.5 – Marketing research
+It is possible, at each turn of the game, to order market research. These studies have the
+major advantage of helping to better understand the mechanisms of the model, and as
+such they are an important help during the first periods of play, but in return they pay off.
+The studies are only available to companies, as banks do not have the possibility to order
+them outside the panel, to which they are automatically subscribed. The three proposed
+studies are as follows:
+• The panel (cost: 2000): it allows you to know the details of positioning, price,
+quality, and sales for each product of each company, while leaving in the shadows a
+certain number of elements that can contribute to the success of a product
+(advertising, sales force, credit, loyalty, etc.). The panel is crucial for those who want
+to either detect and copy leading products, or on the contrary seek to detect less
+congested areas to prepare for an opportunistic launch.
+• The study of the mix (cost: 1500): this makes it possible to know, for all the products
+of the commissioning company, the level of effectiveness of the various variables
+influencing demand. It is assumed that a complete study has been done with
+consumers and distributors to determine whether age, price, advertising, positioning,
+etc. of the products put on sale were satisfactory or not. In practice, it is the effects
+of the variables as calculated by the model that are given to the participants. The
+study also provides the elasticities of some of these variables to allow their position
+to be refined on the curves provided above. As in any study of this type, the results
+are given with a certain margin of uncertainty (plus or minus 3%).
+27
+
+--- Page 28 ---
+• Simulation (cost: 1000): it makes it possible to know the level of sales that would
+be achieved by an imaginary product with a certain positioning, a certain level of
+price, quality and advertising (and benefiting from the same sales force and the same
+customer credit as all the other products of the company) in the current market
+conditions. This simulation is sold by a specialized firm which, despite all its science,
+cannot guarantee an accuracy of more than 5% (more or less). One of the advantages
+of simulation is that it forecasts future sales over a period of three years, taking into
+account the loyalty that would be gradually created. Its flaw lies in its relative
+imprecision, aggravated by the fact that between a simulation and a very real launch,
+it is enough for a competing product to be launched in the coveted segment for the
+gap to be considerable.
+3.6 - Income Tax, Subsidies
+The company's profits, regardless of their source (operations, capital gains, etc.) are taxed
+at a fixed rate of 50%.
+In the event of a catastrophic situation for one of the companies in the market or one of
+the banks, the facilitator has the possibility of granting subsidies. However, this option is
+only to be used as a last resort, since it makes it difficult to accurately evaluate the
+company at the end of the game.
+In the most frequent case, the host systematically subsidizes 90% of the losses of loss-
+making companies during the first period of play in order to avoid too great an initial
+imbalance between the different teams. The subsidy rate is then reduced to 60% of the
+losses for the rest of the game (so as to prevent some companies from entering a vicious
+circle of poor results from which it would be impossible to escape).
+4 - Practical elements: example of a first period of play
+Finally, here are the three types of documents that will serve as a support for the game:
+• An example of a decision sheet (each team will have to fill in one per period of play,
+in paper or computer form)
+• An example of result sheets
+• An example of study sheets (where data from a panel, a mix study and a simulation
+follow one another)
+These documents are extracted from a typical first game session, which allows them to
+be embellished with corresponding explanations, which are particularly important when
+reading the marketing mix study.
+If reading these documents is not essential at first, it undoubtedly corresponds to the
+most concrete questions that arise during the first periods of the game.
+28
+
+--- Page 29 ---
+4.1 - Decision Sheet
+General
+At the beginning of the simulation, an identification number is assigned to each company
+(between 1 and 10) and each bank (between 1 and 4). This number is then recalled on all
+company documents. On the decision sheet, the units, which are implicitly those used in
+this manual, are never displayed. Thus, for a production investment of 15000, we simply
+write: 15000.
+29
+
+--- Page 30 ---
+Loans
+Loans made to banks 1 and 2 are indicated by the borrowing company, and must be
+validated by the partner bank by the exact identity of the seizures of the company and
+the bank concerned (otherwise the loan is transferred to the usurer).
+As far as borrowing from the usurer is concerned, no particular conditions are set since it
+is granted systematically.
+Securities
+Requests to buy and sell securities are indicated in terms of the number of securities.
+Operations are carried out on the basis of the quoted quote. There is no "best", "limit" or
+other special order, nor is there a short selling.
+Numbering
+At each step, you have to indicate how many products you intend to remove (0 if you
+don't abandon any, 1 or 2) and how many you plan to launch. When you choose to delete
+a product, you obviously have to give its number, which then becomes vacant and can be
+reused (immediately or later) for another product. It is possible to abandon a product at
+any time, even if there is still stock. In this case, the stocks will be sold immediately at a
+very low price (25 per unit in stock).
+When a product is launched, it must be assigned a number between 1 and 4. The most
+logical thing to do is to number the products in the chronological order of their creation,
+although this is not mandatory. The reuse of vacant numbers is done in no established
+order. Any company which, in its decision sheet, confuses its different products with each
+other would be held solely responsible.
+Product Decisions
+The positioning is fixed at the time of its launch and can only be changed thereafter for a
+fee and within narrow limits. On the other hand, the levels of production, prices and
+advertising may vary freely from one period to another, but as indicated above, the total
+level of production is limited by the amount of fixed assets and large price variations,
+although perfectly tolerated, are detrimental to consumer loyalty.
+Sales force
+The sales force is indicated in terms of the number of sales representatives. Each
+salesperson costs 300 per year.
+Customer Credit
+The duration of the customer credit is indicated in number of days.
+Studies
+We simply indicate 0 or 1 in the proposed boxes depending on whether we wish to order
+the different studies proposed. If you buy a simulation, you must of course specify the
+positioning, price, quality and advertising budget of the product whose launch is
+simulated.
+30
+
+--- Page 31 ---
+4.2 - Result sheets
+31
+
+--- Page 32 ---
+Product Feature Reminder
+The result sheets start by recalling the characteristics of the products. These
+characteristics are normally known, with two exceptions:
+• Actual output may be out of step with demand output if capital assets were not
+sufficient to reach that level.
+32
+
+--- Page 33 ---
+• As previously indicated, the positioning of new products is slightly out of step with
+the requested positioning. This is where the teams discover the real positioning of
+their products, which will not vary thereafter. In this case, the requested positioning
+for product 1 was (45, 80), and its actual positioning was (43, 81).
+General environment
+This section gives some general indications on the market performance in terms of
+volume (market shares), economic health (corporate and bank results), and market
+capitalization.
+In this trial game, we observe two things:
+• The majority of companies are beneficiaries. This will not necessarily be the case in
+the real game. It must be said that the economic indicator was favourable (indicated
+under the table of economic data, it is 10%).
+• The results are partially independent of market shares, which attests to the fact that
+you can be profitable without making a volume.
+Stock market operations
+This table lists first of all the purchases or sales of securities made. In principle, sales are
+not surprised, because they always correspond to the sales requested, provided that the
+securities have actually been held (you cannot sell what you do not own). On the other
+hand, the purchases made may be out of step with the requested purchases if the overall
+demand for a security has exceeded the number available on the market. In this case, as
+indicated above, each person is served on a pro rata basis (each request being limited to
+the number of titles available).
+The number of securities remaining available on the market at the end of the period is
+indicated in the last column of the table. This indication gives an idea of the demand for
+each of the titles during the past period.
+The lower part of the table shows the state of the securities portfolio. Here, there is no
+difference with the upper part of the table because we are playing the first half of the
+game. But when you have accumulated a certain number of securities purchased under
+variable conditions, this lower part is interesting because it makes it easy, by a simple
+comparison between the "total purchase value" column and the "capitalized value"
+column, to see whether the current portfolio contains unrealised capital gains or losses.
+Analytical accounts
+This is where we discover the crux of the matter, namely the sales volume of each of the
+company's products... and the stocks corresponding to unsold items. In this case,
+production was very well estimated for product 2, with demand almost exactly matching
+sales. For product 1, there was a stock shortage, the order of magnitude of which can be
+assessed by means of the marketing mix study (see below).
+In this small analytical income statement, the amortization of the capital assets allocated
+to each product is taken into account, as this is a significant amount. On the other hand,
+for the sake of synthesis, not all costs are taken into account (for example, launch,
+repositioning, storage costs, which are exceptional or have a low impact, are ignored).
+33
+
+--- Page 34 ---
+These costs will only appear in the company's general income statement. It is up to the
+teams, if they wish, to further refine the analysis by developing their own cost accounting
+tools.
+Be careful : it is under this table that we find, in small print, the unit cost of production
+taking into account economies of scale (obviously this cost, like the volume of production,
+is different for each company). The non-quality cost is common to all products, and the
+cost including the quality budget is obviously variable.
+Income statement
+Nothing to report except that the "exceptional income" account is used by the facilitator
+to enter either subsidies (positive) or fines (negative) in very specific cases. As a general
+rule, it remains zero for the duration of the simulation.
+Below the income statement, the company's profitability is indicated, calculated here as
+the ratio of net income to equity. There is also the solvency index, set at 1 in the general
+case, and which increases to -1 in the event of insolvency risk.
+Financing table
+Many participants are surprised by the fact that the depreciation appears to be positive
+in this table. However, there is nothing very normal about this. Since the financing table
+takes into account the deferred profit, which has included a fictitious expense account
+(depreciation) that has not given rise to a real outflow of money, it is normal that this
+account should be reintegrated into the financing statement which, for its part, is
+interested in the money actually coming in and out of the company.
+The same mechanism applies to the sale of securities, which are always valued in this
+table for their purchase value. Since the capital gain or loss has already been taken into
+account in the income statement, and the balance of this account (the profit or loss set
+aside) has been recorded in the cash statement, showing the sale of securities at its real
+value would be equivalent to accounting for the capital gain or loss twice.
+Balance sheet
+The assessment does not present any particular difficulty in understanding, but deserves
+two clarifications:
+• Fixed assets are net on 1 January, i.e. they indicate precisely, by a simple division by
+100, the production capacity of the following period, to the nearest investment in
+production. Here, we know that we will be able to produce 263 units in period 2
+without reinvesting. If you want to produce 400, you will have to invest 100 x (400-
+263) = 13700.
+• The loan has not yet been repaid, but it is about to be. If we do not negotiate a new
+loan with the bankers, the next balance sheet will mention 0 in this account, and the
+consequence will be felt on the cash balance.
+• The share capital may vary depending on the parameters chosen by the facilitator;
+In the published example, it is set to 40000 while in most game worlds it can be set
+to 32000.
+4.3 – Perceptual mapping
+34
+
+--- Page 35 ---
+For the most part, the panel is self-explanatory: it describes numerically and graphically
+the different products on the market. On the graph, each product is represented by a
+brand whose type varies according to the company (white circle for company 1, white
+square for company 2, see legend), and whose size is proportional to the market share.
+The large dotted circles indicate the location of the core of the market segments.
+It can be noted that the panel does not give access to production figures: we therefore
+never know if the sales volume of a given competitor's product corresponds to its total
+demand or if there has been a stock shortage (which can nevertheless be assumed for a
+recent product whose sales figure falls like a production figure). We also do not know the
+number of sales representatives or the number of days of credit of competing companies.
+Finally, we don't know their past (and therefore the loyalty that products can enjoy). We
+therefore do not have in hand all the elements that justify the success or failure of their
+products. This is intended to account for the fact that some data on competition, although
+desirable, still remain in the shadows. As a result, some teams are tempted, in a
+movement of simplification, to attribute these successes or failures solely to apparent
+variables, which are in reality only a partial cause. It is not uncommon to see strange
+forms of superstition appear in certain working groups, born of the poor relationship
+established between certain causes and effects.
+35
+
+--- Page 36 ---
+4.4 - Marketing mix analysis report and simulation
+Effects of the different variables in the mix
+Note: In the following section, there may be small differences between the figures shown
+on the graphs, which are the figures actually used by the model, which are in principle
+inaccessible except in the context of this manual, and the figures shown in the marketing
+mix study, which are always intentionally subject to a slight margin of error.
+In principle, the marketing mix study is supposed to represent the numerical results of a
+real market study, which has compared the image of the company's products to consumer
+expectations on all the explanatory variables of demand (age, price, quality, advertising,
+etc.). In the practice of simulation, the effects shown in the table make it possible to
+36
+
+--- Page 37 ---
+understand the situation of the company's products on the different curves shown earlier
+in the manual.
+Let us take the case of the effect of age; We learn from the table that products 1 and 2,
+which are both one year old, enjoy an age effect of 77% and 78% respectively. This means
+that their positions on the demand response curves at age can be represented as shown
+in Figure 17.
+It can be observed that, as indicated above, product 1, which is more chemical and more
+generalist than product 2, evolves on a steeper curve. It will therefore reach its maturity
+phase more quickly, but also its decline phase.
+Figure 17 - Effect of age on demand of P1 and P2
+For other effects, the graphs are as follows (Figures 18 to 22):
+37
+
+--- Page 38 ---
+Figure 18 - Effect of quality on demand of P1 and P2
+Figure 19 - Effect of price on demand of P1 and P2
+38
+
+--- Page 39 ---
+Figure 20 - Effect of advertising on demand of P1 and P2
+Figure 21 - Effect of the salesforce on demand of P1 and P2
+39
+
+--- Page 40 ---
+Figure 22 - Effect of customer credit on demand of P1 and P2
+The effects of the sales force and customer credit can be understood in the same way as
+the effect of price and advertising, by referring to the curves of the manual. This time,
+however, there are no more variations depending on positioning. And for good reason;
+The sales force and customer credit are common to all the company's products. The
+curves are otherwise simple in appearance, so both effects are rather easy to control.
+Effect of positioning
+When it comes to the effect of positioning, understanding is much simpler. The effect
+shown corresponds exactly to the demand intensity at the point considered as shown in
+Table 3.
+For example, here, we see a positioning effect of 93% for product 1, positioned in (43, 81).
+The matrix of positioning efficiency gives 85% for (40, 80) and 100% for (45, 80). A small
+linear interpolation (no need for a calculator, a little rough mental calculation does just as
+well) shows that these values are quite consistent with each other.
+Effect of differentiation
+Unlike the effect of positioning, the effect of differentiation is not delivered by any curve
+or matrix. It will therefore never be possible to predict it exactly.
+In the present case, we are dealing with two quite different effects of differentiation for
+products 1 (85%), and 2 (61%). This difference can be understood by observing the
+mapping. Product 1 has only one competitor, while Product 2 has two relatively close
+competitors both in mapping and in terms of price.
+Such a difference in situation justifies product 2 being almost half as well differentiated
+as product 1.
+40
+
+--- Page 41 ---
+Using the Table
+It would be illusory to think that the game consists in maximizing all the effects of the
+painting. It's easy to do it: just put the products on sale at very low prices, with a colossal
+advertising budget and hordes of sellers... The products will sell in droves... and the
+company will collapse. In reality, it is not a question of finding a maximum, but an
+optimum to achieve satisfactory efficiency at a low cost.
+It should not be concluded that, because of the lack of weighting between the different
+coefficients, all variables are equally important. This is not the case because the range of
+variation of the variables is not the same. Customer credit, for example, is not very
+important and it only varies between very narrow limits (it will never be small). On the
+other hand, the effects of price or differentiation (important variables) can be very small,
+and therefore very penalizing. It is up to the teams to calculate which variables to use to
+increase the demand for their products at the lowest cost. In any case, it is possible to
+make reasoning such as:
+• If the age effect is 80% for a one-year-old product and 95% for a two-year-old
+product, all other things being equal, 19% more can be sold in the second year (95%
+divided by 80% equals 1.19).
+• The effect of advertising is 64% for a given product, and if we allocate an advertising
+budget that allows it to reach 96%, we can, all other things being equal, increase sales
+by 50% (96% divided by 64% gives 1.5).
+Etc.
+In addition, the penultimate row of the table is often the most important: it indicates the
+demand for the product, and thus provides a clear idea of the production adjustments to
+be made subsequently. This information is not useful when you have products in stock
+(since then sales correspond to demand) but it is essential during stock shortages, since
+it allows you to measure the importance of these shortages: in our example, we learn
+that the stock shortage was 50 units (demand of 350, production of only 300).
+Elasticities
+The elasticities indicated by the program correspond to their usual academic definition.
+Price elasticity, for example, indicates the change in demand (in %) that can be expected
+for a price increase of 1%. In this case, product 1, sold at a price of 136, has a price
+elasticity of -1.45. It is deduced that if the product were sold at 137.36 (136 plus 1%),
+demand would increase to 345 (350 minus 1.45%), if all other variables and competition
+remained equal elsewhere.
+This indication is not very useful as such, but it is possible, without too much risk, to
+extrapolate the measure of elasticity (theoretically pointal) to an area a little wider than
+1%.
+If we assume that the extrapolation to the neighboring 10% area is legitimate, we can
+instead say: if the product were sold at 150 (136 plus 10%), the demand would increase
+to about 299 (350 minus 14.5%). We can also consider the opposite possibility and
+calculate that if the product were sold for 122 (136 minus 10%), we could invest 401 (350
+plus 14.5%). It is up to the team concerned to calculate whether such changes are
+desirable or not.
+41
+
+--- Page 42 ---
+The elasticity to the other variables indicated works on exactly the same principle,
+allowing the product mix to be adjusted with great precision. Be careful, however: the
+fact that an increase in a budget is not desirable locally does not prove that a large
+increase is also necessarily a bad solution. Let's take the example of advertising. For a zero
+budget, the elasticity is 0 (because the tangent to the curve of the advertising effect is
+horizontal, as is the case for product 2). However, this does not prove that a budget for
+2000, for example, would not be profitable, because thanks to it we would exceed this
+first threshold and we would gain a very different zone of elasticity. Caution, therefore,
+not to extrapolate too far, especially for irregular curves.
+5 - Bankers' Game
+The natural range of negotiation between bankers and corporate borrowers extends
+between 5% (the risk-free rate of return on the banks' cash flow, which therefore has no
+interest in lending at less) and 16% (the rate of usurious borrowing, which is easy to obtain
+without justification by the borrowing companies, which therefore have no interest in
+borrowing more). Between these two limits, companies that need money and bankers
+who hold it more or less find what they are looking for. Where exactly between these two
+boundaries? This is the whole purpose of the negotiation between the stakeholders.
+One might think that the banker is necessarily a winner, and that he does not take any
+risks. It's not true. In most cases, the banker is actually paid. But sometimes a company is
+a bad partner for a bank. This is the case when two conditions are met:
+• The company has the worst result of all the companies on the market
+• The company loses at least 1000
+If these two conditions are met, the company is considered to be in difficulty. It is then
+assumed that its suppliers are wary of it, no longer grant it preferential rates, or even take
+it to court at the slightest delay in payment. The banker, who is in solidarity with the
+company in order to be able to recover the amount of his loan, is sanctioned as follows:
+the bank does not receive the interest on the loan, and in addition he must pay a fine
+equivalent to 50% of this interest.
+For its part, the company concerned will still pay, in its income statement, the amount
+corresponding to this interest. But it will be assumed that this sum is used to cover other
+costs related to his crisis situation.
+The situation of a company in difficulty is manifested on the income sheets by an index
+called "solvency" which is set at 1 in normal times and goes to -1 in the event of
+difficulties.
+Bankers are free to organise their thinking as they wish. In any case, they will quickly have
+to be able to arbitrate between the use of their capital in the form of loans or stock market
+investment.
+At each gaming period, bankers can lend a sum equal to what they have left in cash plus
+the loans on the balance sheet (which are in fact in cash on January 2nd), plus/minus the
+purchases/sales of securities that they plan to make (not counting capital gains or losses,
+which are considered to be payable during the year). In addition, they can refinance
+themselves under the following conditions:
+42
+
+--- Page 43 ---
+• The refinancing rate varies by tranche: it is 6% for the part between 0 and 10000,
+7% for the part between 10001 and 20000, etc. (1% increase per 10000)
+• Refinancing is limited to 100000
+• Refinancing is an operation carried out over one year: the following year, it must be
+indicated again if it is still necessary, otherwise the bank risks experiencing a strongly
+negative cash position.
+In the event of a negative cash flow at the beginning of the financial year, banks pay
+interest rates on the overdraft amount in the same way as companies (at a rate of 20%).
+It is clear that bankers can rightly change the terms of their loans based on their
+assessment of the economic health of corporate borrowers. If p represents the
+probability that the borrowing company will be insolvent at the end of the gambling
+period (probability that the bank must try to assess), the expectation of the profitability
+of the loan is indeed from the point of view of the lending bank:
+Er = t . (1-p) - 0.5 . t. p = t. (1 - 1.5.p)
+where Er is the expected profitability and t is the loan rate.
+It should be remembered that in the event of insolvency, the lending bank loses the
+equivalent of half of the interest it would normally have received. If t0 represents the base
+rate at which the bank can safely invest its money (in this case, the rate of return on cash),
+we can write that the loan only becomes desirable when Er exceeds t0.
+We therefore arrive at the following inequality:
+t. (1 - 1.5.p) > t i.e. t > t0 / (1 - 1.5.p)
+0
+If tmin is the minimum rate that the bank may have an interest in granting, then:
+tmin = t / (1 - 1.5.p)
+0
+In any case, banks have no "social" role to play in the simulation. Any company in difficulty
+that tries to make them feel guilty about this could be opposed to this paragraph. Their
+goal, like that of all other companies, is to maximize their profit. While they must
+demonstrate pedagogy and diplomacy for this (especially when companies, most of the
+time self-sufficient in the first periods, start to call on them in period 3 or 4 for loans that
+exceed their financing capacity, and trade-offs are necessary), these qualities should only
+be considered as means to their performance, and not as ends in themselves.
+If there is any doubt about the financial health of the borrowing companies, banks can
+always choose to insure their loans, which guarantees the repayment of interest even in
+the event of insolvency. However, this option obviously has a cost (2% of the amount
+borrowed), which should be compared to the reduction in risk thus acquired.
+6 - Alliances
+Bankers can be valuable vectors of information to raise the level of overall simulation
+intelligence for the benefit of all. Everyone has something to gain from the market
+developing harmoniously and allowing everyone to achieve good results (in particular
+thanks to the repercussions of economic activity on stock market prices). In addition to
+the fact that the performance of each company is compared with that of other companies
+43
+
+--- Page 44 ---
+in its game world, it can also be compared to the performance of companies operating in
+other game worlds. A shareholder who has to choose to invest more or less in a given
+company may give preference to the one that earns 3000 and whose competitors earn
+4000, rather than to the one that earns 2000 and whose competitors earn 1000.
+In a market where producers "get along" well, a number of coordinated actions may be
+part of formal agreements, but in most cases the agreements are invisible, simply the
+result of private discussions between actors, and difficult to identify.
+The only role of the facilitator from the point of view of agreements between teams is, at
+their request, to validate certain contractual agreements and to carry out the terms and
+conditions provided for in these agreements. However, an agreement can only be
+validated by the facilitator (and therefore take the force of law) if the facilitator considers
+its content to be lawful. Broadly speaking, lawful agreements may relate to long-term
+commitments between companies and banks (loans planned over several consecutive
+periods), or the conditioning of a loan on a certain number of commercial decisions (for
+example, a loan could only be granted on condition that it is actually used for an
+investment in production). On the other hand, any agreement on price levels, exchanges
+of information, or market sharing in terms of positioning, would be considered illegal.
+Therefore, any agreement between companies on these points would only be a matter of
+the word given, and no sanctions would be exercised in the context of the simulation
+against the offenders in the event of non-compliance with the agreement.
+Let's imagine, for example, that a company and a bank want to make a commitment, from
+period 1, to borrow 10000 over 3 years at 10% repayable in fine. The two contracting
+parties may draw up a contract specifying precisely the terms of their agreement
+(duration of the agreement, amounts committed), and the penalties/compensation to be
+applied in the event of non-compliance (or default, or absence, or error in good faith,
+etc.). If the contract is considered formally valid by the facilitator (the conditions for this
+validity being in particular that the reference periods and the terms of termination are
+clearly indicated), it is registered, and during the following periods, it becomes law; That
+is to say, in the event of non-compliance with the contract accompanied by a complaint
+by the aggrieved company, the host compensates the latter and penalizes his (ex-)partner
+according to the terms and conditions provided for in the contract. It should be noted
+that making a commitment of this type does not in any way exempt the need to enter the
+information on the successive decision sheets, as the simulation programme is only
+connected to the decision sheets and not to the agreements between partners.
+If, on the other hand, two companies wish to make a commitment not to harm each other
+in a given segment, it is up to them to find their own means of agreement between them,
+as the host refuses to endorse this type of alliance, which is considered illegal.
+7 - Frequently Asked Questions
+Question : What do you need to do to win?
+Answer : Start by reading the manual! Almost everything is there.
+Question : What is the most important section of the manual?
+44
+
+--- Page 45 ---
+Answer : After this one, the consecutive sections "demand coefficient", "use of the table",
+and "elasticities".
+Question : Can luck make you win?
+Answer : Yes. It cannot be ruled out that decisions taken in a risky way are rather
+fortunate. However, this situation has a low probability of reoccurring throughout the
+simulation for the same company.
+Question : Can luck make you lose?
+Answer : No. It can momentarily diminish a result. But a company that loses a lot of
+money has inevitably made mistakes or taken risks (sometimes without realizing it, by the
+way).
+Question : What are the qualities required to win with a company?
+Answer : A mind turned towards play, manipulation, experience rather than an overly
+studious, contemplative or passive mind; a sense of proportion more than a sense of
+detail; a certain intellectual flexibility to avoid an overly academic treatment of
+simulation; the ability to be informed, to establish relationships with other teams;
+possibly knowledge of mathematics (analysis); in computer science and programming.
+Question : What are the qualities required to win with a bank?
+Answer : The ability to process a large amount of commercial and accounting data in a
+comparative manner; the ability to obtain information, to exchange with other
+participants; diplomacy; availability; resistance to stress (which will have to be faced
+during loan negotiations or refusals); prior in-depth knowledge of corporate finance is not
+necessary.
+Question : What is the point of being a banker?
+Answer : The bankers' game provides a broader vision of the simulation than that of a
+particular company, the assurance of a higher average result than that of companies and
+the possibility of a more in-depth stock market game.
+Question : What are the variables that should be of most interest?
+Answer : For companies : first of all, the comparative positioning/differentiation of each
+of its products; price; then quality and advertising. For the banks : the evolution of the
+stock market quotes of the various companies (much more important than an interest
+rate point on which the participants nevertheless work hard to negotiate, sometimes for
+hours!)
+Question : How do you know if a product is profitable?
+45
+
+--- Page 46 ---
+Answer : By developing complete and accurate cost accounting yourself. The cost
+accounting elements given in the simulation are intentionally minimalist and only allow a
+rough estimate of the profitability of each product. It is also common to have a range of
+products that appear to be all profitable, i.e. with a positive margin, and an overall
+negative accounting result. This is linked to the fact that a certain number of expenses,
+sometimes of large amounts, are not charged to the analytical accounts.
+Question : Is there a synergy between all the products in the range?
+Answer : From a production point of view, yes, since the production tool can be used
+indifferently to produce any product in the range. It is therefore sometimes advantageous
+to limit the production of a product that sells poorly and has a large inventory, and to
+reallocate the production capacity thus freed up to a younger or more demanded
+product. On the other hand, from a commercial point of view, the only synergy comes
+from the joint sales force, but it must in any case see its workforce grow in proportion to
+the number of products to be sold in order to maintain constant efficiency. It is especially
+important to note that an advertising investment on one product in the range has
+absolutely no effect on the other products, contrary to what sometimes happens in reality
+(for example in the automotive market, food market, etc.).
+Question : When should you advertise a product?
+Answer : Not systematically in any case. In general, it is almost essential to advertise on a
+generalist product (but not on a specific product). It is also more effective to advertise
+when the product is young, which means one or two years. It can be clever to launch a
+product without advertising knowing that it will sell poorly, and to wait until the beginning
+of its maturity (second year) to push it into advertising, in order to work on a more solid
+foundation. A weak product (poorly positioned, too competitive, too old, etc.) generally
+does not deserve a heavy advertising investment. On this type of product, it is better to
+limit costs.
+Question : How much growth in demand can we expect between the year of a product
+launch and the next?
+Answer : 20% to 40% if nothing else changes. We can be convinced of this by looking at
+the figures of the study called "simulation" given as an example below the analysis of the
+marketing mix.
+Question : When should you give up your products due to aging?
+Answer : It is up to you to determine it experimentally. Usually after 3 and 8 periods of
+play.
+Question : Can an old product be replaced by a new product with the same positioning?
+Answer : Yes, and it's a classic way.
+46
+
+--- Page 47 ---
+Question : Can we simultaneously delete and launch a product using the same number?
+Answer : Yes.
+Question : What is the most important market research?
+Answer : The study of the marketing mix is almost essential at the beginning of the
+simulation if you don't want to make completely random decisions. The panel is extremely
+helpful before every new product launch. Simulation is much less useful.
+Question : When should market research be ordered?
+Answer : It is strongly recommended to order the marketing mix study at least for the first
+two or three periods of play.
+Question : In the study of the marketing mix, is the most important thing about the
+efficiencies (or effects) of the variables or the elasticities?
+Answer : At the beginning of the simulation, for coarse adjustments, the efficiencies;
+then, for a finer adjustment, the elasticities.
+Question : How should we understand efficiencies and elasticities?
+Answer : Refer to the section on this question at the end of the manual; this is the focus
+of the simulation.
+Question : How many products should be launched in the first half of the game?
+Answer : A priori two, to spread the risks and quickly gain a surface area of activity that
+will allow the company to absorb the fixed costs. Only one, or even none, if we wish to
+bet on caution and the launch at the wrong time, anticipating for period 2, thanks to the
+help of the panel, better information on the market. If we don't launch a product, we will
+benefit from taking an interest in the stock market.
+Question : Should we be worried about a slightly negative result in the first two periods
+of play?
+Answer : No, this is a normal phenomenon; companies start from scratch in a non-existent
+market, so they need a little time to become profitable.
+Question : What are the most misleading differences between this simulation and reality?
+Answer : From a financial point of view, the fact that the default loan term is set at one
+year, and the consequent obligation to renegotiate a sometimes considerable proportion
+of one's liabilities at each gambling period. From a commercial point of view, reducing the
+effect of communication to its quantitative value and the absence of any effect of the
+commercial offer on the positioning matrix are quite counterintuitive.
+47
+
+--- Page 48 ---
+Question : What is the most common technical error made by participants?
+Answer : The difference in consumer sensitivity to price and communication, although
+extensively detailed in the appendix, is often interpreted backwards: it is towards the right
+of the mapping (chemical products) that high prices are very penalizing, and towards the
+top of the mapping (generalist products) that the absence of advertising is the most
+detrimental.
+Question : The actual production does not correspond to the production requested. What
+for?
+Answer : Because the investments have been insufficient.
+Question : The actual investment does not correspond to the investment requested.
+What for?
+Answer : Either because the investment requested did not correspond to the real need
+given the planned production, or because the cash flow was insufficient.
+Question : How do you make the first decisions?
+Answer : Drawing more or less directly from the example given in the manual, the
+company described in the manual is profitable, and it is operating in a market where most
+other companies are as well, after launching products with a varied business profile
+specified in the panel. Be careful: the worst is to be feared, however, in the event that all
+companies take decisions that are too close, particularly in terms of positioning, causing
+a competitive situation of confrontation that is detrimental to all.
+Question : What does the first half look like?
+Answer : A bit of a jump in the fog; but you have to start somewhere... And then, such
+situations of uncertainty are sometimes found in real economic life, in certain emerging
+markets. Subsequent decisions are much more informed.
+Question : When does a product start to age?
+Answer : A glance at the simulation given as an example suggests that the decline begins
+(although very attenuated) as early as period 3 of a product's life, which, all other things
+being equal, brings a little less demand than period 2. However, this observation must be
+qualified by the fact that the products located at the top right of the mapping age faster,
+and those located at the bottom left are more resistant to the effects of age.
+Question : Where can we find a summary of how the market reacts at different points in
+the mapping?
+Answer : In Figure 23.
+48
+
+--- Page 49 ---
+Figure 23 - Summary of various areas’ sensitiveness
+Question : A little trick to finish?
+Answer : In the panel, round sales figures often indicate stock shortages. This is because,
+for the sake of simplification, companies often produce rounded quantities, and when
+they start from zero initial inventory and demand exceeds supply, this results in sales
+figures ending in 0.
+8 - Archetypes of products suited for different segments
+There is a notable difference between real life and the situation of the teams at the
+beginning of the simulation: they start without any experience in a market they have
+absolutely no knowledge of (and which has no known past or established competition
+structure).
+To compensate for this lack of information, here are some ranges within which it is
+reasonable to fall. These ranges are for information purposes only. They are not
+misleading, so there is no point in trying to verify their validity. But on the other hand, we
+should not think that the middle of the range is necessarily an optimal choice. In any case,
+they are extremely wide so as not to be too precise an indication.
+49
+
+--- Page 50 ---
+S5:
+S1: Major S2: Green S3: Low S4: S6:
+Segment Distribution
+Brands Brands cost Medium Organic
+brands
+X [40 – 60] [15 – 25] [80 – 95] [35 – 60] [70 – 90] [10 – 20]
+Y [70 – 90] [65 – 75] [40 – 60] [35 – 60] [10 – 40] [10 – 20]
+Price [100–180] [120-320] [80 – 120] [100-180] [90 – 130] [150-380]
+Quality [10 – 40] [15 – 90] [0 – 15] [5 – 50] [2 – 25] [30 – 100]
+Advertising [0–10000] [0 – 8000] [0 – 5000] [0 – 5000] [0 – 5000] [0 – 5000]
+Volume (launching
+stage, mature [100–200] [20 – 200] [50 – 130] [50 – 100] [50 – 150] [20 – 50]
+market)
+Volume (maturity
+stage, mature
+market, or [200–500] [30 – 300] [100-250] [100-200] [100 – 300] [30 – 80]
+launching stage,
+new market)
+Age sensitiveness Strong Moderate Moderate Moderate Weak Weak
+Profit potential Strong Strong Moderate Weak Weak Moderate
+Risk High High Moderate Moderate Moderate Weak
+Indicative values, players have the right to leave these intervals
+Number of sales representatives: from 3 to 20 depending on the activity
+Duration of the customer credit: from 30 to 120 days
+9 – Common mistakes
+Over-quality : quality is added to the unit production cost, it quickly becomes very
+expensive. It therefore only makes sense if consumers are willing to pay proportionately
+more for the products concerned, which is rarely the case. In the long term, the vast
+majority of products will be sold at a quality level between 5 and 30, although
+occasionally (especially for the organic segment), the quality can go up to 80 or 100.
+Over-communication : each advertising budget constitutes a significant fixed cost
+(because of the efficiency threshold to be crossed, between 2000 and 5000 depending
+on the segment) which only makes sense if the volume of business on the product
+concerned is very high. For products that have exceeded their maturity, limited by the
+competition, not very effective for other reasons, or simply do not intrinsically need it
+(bottom of the mapping), it is strongly recommended not to do it at all. In the long term,
+between 50 and 80% of products could be sold without advertising. On the other hand,
+for advertising-sensitive segments (national and green brands), advertising should
+generally be maintained for at least two to three periods after launch to avoid triggering
+the decline too early.
+Average prices : the model encourages a fairly clear-cut pricing policy: around 120, or
+around 300. Around 200, we are generally disappointed by the level of sales.
+50
+
+--- Page 51 ---
+Prices that are too low : given the fixed costs to be shared, it is generally not possible to
+generate a profit by selling at less than 100, even for a minimum quality level (0). On
+products aimed at very large volumes, the margin can double between 100 and 120 if
+the price elasticity is not too high.
+Too large a sales force : In many cases, 5 to 10 salespeople are enough. Beyond that, it
+is necessary to control the elasticity of demand to this variable. Low elasticity signals a
+disappointing marginal return.
+Lack of customer credit : You should always do at least some customer credit.
+Unbalanced ranges, unrealistic forecasts : some very positive earnings forecasts are
+based on a single false assumption (usually a forecast of high volume sales on an
+expensive product). The market often reminds the culprits to be more realistic when it
+comes to the actual results.
+10 - Reminder of the main coefficients of the simulation
+Companies’ common stock capital (initial cash): 32,000
+Banks’ common stock capital: 80,000
+Production capacity: net fixed assets divided by 100
+Depreciation rate: 25%
+Production cost: decreasing according to the total quantities produced, from 40 per unit
+produced (usually between 20 and 30), plus quality
+Stock (inventory) valuation: 50 per unit
+Sell off price of inventory (in case of withdrawal): 25 per unit
+Handling cost of stocks: 4 per unit per game period (carried over to the next period's
+income statement).
+Company overheads: 2000 plus 1000 per product in the portfolio
+Bank overheads: 4000 (including panel)
+New product launching: 1000 for the launch period
+Repositioning costs: 500 for each X and Y offset (max. 5 X and 5 Y-notches per play period)
+Salesforce cost: 300 per salesman
+Perceptual mapping cost: 2000
+Marketing mix analysis cost: 1500
+Product simulation cost: 1000
+Cash yield: 5%
+Usury rate: 16%
+Interest charges on overdraft: 20%
+Bank refinancing rate: 6% for the [0-10000] tranche + 1% for each additional 10000
+Tax rate: 50%
+Insurance rate on loans (paid by the banks): 2% of the capital lent
+51
+
+--- Page 52 ---
+Number of stocks in circulation of each company and each bank: 400
+Start quoted price: common stock divided by number of stocks
+Dividend on shares: 50% of net profit (equality split between the 400 stocks in circulation)
+52
+
+--- Page 53 ---
+53
