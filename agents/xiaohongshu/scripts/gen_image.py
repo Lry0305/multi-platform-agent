@@ -18,7 +18,10 @@ import time
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 
-API_KEY = "sk-sbcsqgshydexdjkdoyglqmodgfvenhrqbrvpelfmsenjxlgc"
+API_KEY = os.environ.get("SILICONFLOW_API_KEY", "")
+if not API_KEY:
+    print("❌ 请设置环境变量 SILICONFLOW_API_KEY", file=sys.stderr)
+    sys.exit(1)
 API_URL = "https://api.siliconflow.cn/v1/images/generations"
 
 def generate_image(prompt, model="Qwen/Qwen-Image", size="1024x1024", n=1):
