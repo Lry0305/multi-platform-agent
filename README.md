@@ -1,13 +1,14 @@
-# 小红书内容生成 Agent
+# 多平台内容发布 Agent
 
-发小红书用的。给个主题，自动写文案、配图、标签。
+发内容用的。给个主题，自动写文案、配图，适配不同平台的格式。目前主要适配小红书，后续陆续加其他平台。
 
 ---
 
 ## 能干嘛
 
-- 写文案：好物推荐、探店、日常、科普，四种方向
+- 写文案：根据主题自动生成内容，支持不同风格和方向
 - 出配图：根据文案内容自动生成图片描述，调硅基流动的 API 出图
+- 格式适配：输出内容按目标平台格式化（字数、排版、标签规则）
 - 批量产：写一个 JSON 配置，一次跑好几篇
 - 管理草稿：生成的东西自动存档，翻出来就能用
 
@@ -22,11 +23,11 @@
 
 ```bash
 # 下载
-git clone https://github.com/Lry0305/xiaohongshu-agent.git
-cd xiaohongshu-agent
+git clone https://github.com/Lry0305/multi-platform-agent.git
+cd multi-platform-agent
 
 # 设环境变量（建议写进 ~/.zshrc 省得每次输）
-export SILICONFLOW_API_KEY="xxx"
+export SILICONFLOW_API_KEY="***"
 ```
 
 ### 跑一篇试试
@@ -67,8 +68,6 @@ python3 scripts/xiaohongshu_pipeline.py generate \
     --vibe 温暖 \
     --images 2
 ```
-
-参数说明：
 
 | 参数 | 说明 |
 |------|------|
@@ -159,22 +158,32 @@ python3 scripts/xiaohongshu_pipeline.py batch recipes.json
 
 ---
 
+## 支持平台
+
+| 平台 | 状态 |
+|------|------|
+| 小红书 | 可用 |
+| 其他 | 陆续添加中 |
+
+---
+
 ## 文件结构
 
 ```
-agents/xiaohongshu/
-├── scripts/
-│   ├── xiaohongshu_pipeline.py    # 主逻辑
-│   ├── gen_image.py               # 调 API 出图
-│   └── preview_post.py            # HTML 预览
-├── references/
-│   ├── xiaohongshu-copywriting.md    # 文案怎么写
-│   └── xiaohongshu-image-prompts.md  # 配图描述体系
-├── output/
-│   ├── posts/                      # 草稿
-│   └── images/                     # 配图
-└── skills/                         # agent 技能定义
----
+agents/
+└── xiaohongshu/                   # 小红书适配（后续按平台分目录）
+    ├── scripts/
+    │   ├── xiaohongshu_pipeline.py    # 主逻辑
+    │   ├── gen_image.py               # 调 API 出图
+    │   └── preview_post.py            # HTML 预览
+    ├── references/
+    │   ├── xiaohongshu-copywriting.md    # 文案怎么写
+    │   └── xiaohongshu-image-prompts.md  # 配图描述体系
+    ├── output/
+    │   ├── posts/                      # 草稿
+    │   └── images/                     # 配图
+    └── skills/
+```
 
 ## 几句废话
 
