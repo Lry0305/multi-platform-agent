@@ -35,7 +35,7 @@ python3 skills/business-sim/scripts/excel_reader.py list data.xlsx
 
 - **Provider:** 硅基流动 (SiliconFlow)
 - **API Endpoint:** `https://api.siliconflow.cn/v1/images/generations`
-- **API Key:** `sk-sbcsqgshydexdjkdoyglqmodgfvenhrqbrvpelfmsenjxlgc`
+- **API Key:** 已移除，改用环境变量 `SILICONFLOW_API_KEY`
 - **Auth Header:** `Authorization: Bearer <API_KEY>`
 - **Format:** OpenAI-compatible `POST /v1/images/generations`
 
