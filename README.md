@@ -1,15 +1,15 @@
-# 🍒 小红书内容生成 Agent
+# 小红书内容生成 Agent
 
-发小红书用的。给个主题，自动写文案 + 配图 + 标签。
+发小红书用的。给个主题，自动写文案、配图、标签。
 
 ---
 
-## 这玩意能干嘛
+## 能干嘛
 
-- **写文案** — 好物推荐、探店、日常、科普，四种方向
-- **出配图** — 根据文案内容自动生成图片描述，调硅基流动的 API 出图
-- **批量产** — 写一个 JSON 配置，一次跑好几篇
-- **管理草稿** — 生成的东西自动存档，翻出来就能用
+- 写文案：好物推荐、探店、日常、科普，四种方向
+- 出配图：根据文案内容自动生成图片描述，调硅基流动的 API 出图
+- 批量产：写一个 JSON 配置，一次跑好几篇
+- 管理草稿：生成的东西自动存档，翻出来就能用
 
 ---
 
@@ -18,7 +18,7 @@
 ### 需要什么
 
 - Python 3.8+
-- 一个硅基流动的 API Key（[去注册](https://cloud.siliconflow.cn/)）
+- 一个硅基流动的 API Key（去注册：https://cloud.siliconflow.cn/）
 
 ```bash
 # 下载
@@ -26,7 +26,7 @@ git clone https://github.com/Lry0305/xiaohongshu-agent.git
 cd xiaohongshu-agent
 
 # 设环境变量（建议写进 ~/.zshrc 省得每次输）
-export SILICONFLOW_API_KEY="sk-你的key"
+export SILICONFLOW_API_KEY="xxx"
 ```
 
 ### 跑一篇试试
@@ -67,6 +67,8 @@ python3 scripts/xiaohongshu_pipeline.py generate \
     --vibe 温暖 \
     --images 2
 ```
+
+参数说明：
 
 | 参数 | 说明 |
 |------|------|
@@ -147,7 +149,7 @@ python3 scripts/xiaohongshu_pipeline.py batch recipes.json
 
 ## 图片模型
 
-默认用的是通义千问，其他的也列一下：
+默认用通义千问：
 
 - `Qwen/Qwen-Image` — 通义千问，日常够用
 - `Kwai-Kolors/Kolors` — 快手可图，中文理解好
@@ -162,25 +164,21 @@ python3 scripts/xiaohongshu_pipeline.py batch recipes.json
 ```
 agents/xiaohongshu/
 ├── scripts/
-│   ├── xiaohongshu_pipeline.py    ← 主逻辑
-│   ├── gen_image.py               ← 调 API 出图
-│   └── preview_post.py            ← HTML 预览
+│   ├── xiaohongshu_pipeline.py    # 主逻辑
+│   ├── gen_image.py               # 调 API 出图
+│   └── preview_post.py            # HTML 预览
 ├── references/
-│   ├── xiaohongshu-copywriting.md    ← 文案怎么写
-│   └── xiaohongshu-image-prompts.md ← 配图描述体系
+│   ├── xiaohongshu-copywriting.md    # 文案怎么写
+│   └── xiaohongshu-image-prompts.md  # 配图描述体系
 ├── output/
-│   ├── posts/                      ← 草稿
-│   └── images/                     ← 配图
-└── skills/                         ← agent 技能定义
-```
-
+│   ├── posts/                      # 草稿
+│   └── images/                     # 配图
+└── skills/                         # agent 技能定义
 ---
 
-## 顺便说几句
+## 几句废话
 
-- 文案走第一人称，短段落，多 emoji，就是小红书上常见的那个风格
+- 文案走第一人称，短段落，多 emoji，小红书上常见的那个风格
 - 配图描述会自动生成多个角度（特写、俯拍、场景），不是一模一样来三张
 - 草稿是纯文本 Markdown，想改直接改
 - API Key 放环境变量，别写代码里——我一开始就踩了这坑，git push 完才想起来
-
-有啥问题直接提 issue。
