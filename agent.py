@@ -60,94 +60,83 @@ class ContentGenerator:
 
     # 各内容方向的写作风格
     SYSTEM_PROMPTS = {
-        "recommend": """你是一个小红书种草博主"小红"。
-写一篇好物推荐的帖子。
+        "recommend": """你扮演一个会写小红书文案的助手。根据用户主题，输出三部分内容。
 
-规则：
-1. 第一人称，口语化，像朋友安利
-2. 每段不超过3行，多分段多留白
-3. 适度使用 emoji，自然不泛滥（每段1-2个）
-4. 必须有真实体验感——用了多久、什么感受、值不值得
-5. 标题用 📌 开头
-6. 结尾要互动（问问题、求推荐）
-7. 不写广告词，不说"超好用"这种空洞词，说具体感受
-8. 最后给出5-8个标签
-9. 总字数控制在300-600字之间
+写作规则：
+- 第一人称，口语化，像朋友安利
+- 每段不超过3行，多分段多留白
+- 适度使用 emoji（每段1-2个）
+- 有真实体验感，不写空洞广告词
+- 结尾有互动
+- 总字数300-600字
 
-输出格式：
----标题
-[标题内容]
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
 
----正文
-[正文，包含 emoji 和分段]
+【CONTENT】
+正文，多段落
 
----标签
+【TAGS】
 #标签1 #标签2 #标签3""",
 
-        "checkin": """你是一个探店博主"小红"。
-写一篇探店打卡的帖子。
+        "checkin": """你扮演一个会写小红书探店文案的助手。根据用户主题，输出三部分内容。
 
-规则：
-1. 第一人称，像刚去过在跟朋友说
-2. 描述具体：店在哪、环境怎么样、点了什么、味道如何、价格多少
-3. 每段不超过3行，多分段
-4. 适度使用 emoji
-5. 有真实感——真的去过，说细节
-6. 结尾给出推荐程度、是否值得去
-7. 最后给出5-8个标签
-8. 总字数控制在300-600字
+写作规则：
+- 第一人称，像刚去过在跟朋友说
+- 写具体：店在哪、环境、点了什么、味道、价格
+- 每段不超过3行
+- 适度使用 emoji
+- 结尾给出推荐程度
+- 总字数300-600字
 
-输出格式：
----标题
-[标题内容]
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
 
----正文
-[正文]
+【CONTENT】
+正文，多段落
 
----标签
-#标签1 #标签2""",
+【TAGS】
+#标签1 #标签2 #标签3""",
 
-        "daily": """你是一个生活博主"小红"。
-写一篇日常分享的帖子。
+        "daily": """你扮演一个会写小红书日常分享文案的助手。根据用户主题，输出三部分内容。
 
-规则：
-1. 第一人称，像发朋友圈
-2. 日常感、真实感、不刻意
-3. 每段短，有画面感
-4. 适度使用 emoji
-5. 最后给出5-8个标签
-6. 总字数控制在200-500字
+写作规则：
+- 第一人称，像发朋友圈
+- 日常感、真实感
+- 每段短，有画面感
+- 适度使用 emoji
+- 总字数200-500字
 
-输出格式：
----标题
-[标题内容]
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
 
----正文
-[正文]
+【CONTENT】
+正文，多段落
 
----标签
-#标签1 #标签2""",
+【TAGS】
+#标签1 #标签2 #标签3""",
 
-        "knowledge": """你是一个知识博主"小红"。
-写一篇知识科普的帖子。
+        "knowledge": """你扮演一个会写小红书知识科普文案的助手。根据用户主题，输出三部分内容。
 
-规则：
-1. 第一人称，像在跟朋友讲
-2. 深入浅出，不要堆术语
-3. 每段短，重点加 **标记**
-4. 适度使用 emoji
-5. 最后给出5-8个标签
-6. 总字数控制在400-800字
+写作规则：
+- 第一人称，像在跟朋友讲
+- 深入浅出，不要堆术语
+- 每段短，重点加**加粗**
+- 适度使用 emoji
+- 总字数400-800字
 
-输出格式：
----标题
-[标题内容]
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
 
----正文
-[正文]
+【CONTENT】
+正文，多段落
 
----标签
-#标签1 #标签2""",
+【TAGS】
+#标签1 #标签2 #标签3""",
     }
 
     def __init__(self, api_key: str, model: str = "Qwen/Qwen2.5-7B-Instruct"):
@@ -203,41 +192,89 @@ class ContentGenerator:
 
     def _parse_output(self, raw: str, fallback_topic: str,
                       fallback_category: str) -> dict:
-        """解析 LLM 输出，提取标题、正文、标签"""
+        """解析 LLM 输出，提取标题、正文、标签
+
+        支持多种标记格式：
+          - 中文：【TITLE】【CONTENT】【TAGS】
+          - 英文：[TITLE][CONTENT][TAGS]
+          - Markdown：---标题 ---正文 ---标签
+        """
         title = ""
         content = ""
         tags = []
 
         lines = raw.strip().split("\n")
         current_section = None
+
         for line in lines:
-            if line.startswith("---标题"):
-                current_section = "title"
-                continue
-            elif line.startswith("---正文"):
-                current_section = "content"
-                continue
-            elif line.startswith("---标签"):
-                current_section = "tags"
-                continue
-            elif line.startswith("---"):
+            stripped = line.strip()
+            low = stripped.lower()
+
+            if not stripped:
+                if current_section == "content":
+                    content += "\n"
                 continue
 
+            # 跳过不关心的分区
+            if re.search(r'【\s*(价格|ending|结尾|总结|summary)\s*】', low) or \
+               re.match(r'^---\s*(价格|ending|结尾|总结|summary)', low):
+                current_section = None
+                continue
+
+            # 检测分区标记
+            switched = False
+            if re.search(r'【\s*title\s*】|【\s*标题\s*】|\[\s*title\s*\]', low) or \
+               re.match(r'^---\s*标题|^---\s*title', low):
+                current_section = "title"
+                switched = True
+            elif re.search(r'【\s*content\s*】|【\s*正文\s*】|\[\s*content\s*\]', low) or \
+                 re.match(r'^---\s*正文|^---\s*content', low):
+                current_section = "content"
+                switched = True
+            elif re.search(r'【\s*tags\s*】|【\s*标签\s*】|\[\s*tags\s*\]', low) or \
+                 re.match(r'^---\s*标签|^---\s*tags?', low):
+                current_section = "tags"
+                switched = True
+            if switched:
+                continue
+
+            # 按当前分区收集内容
             if current_section == "title":
-                title = (title + " " + line.strip()).strip()
+                if title:
+                    title += " " + stripped
+                else:
+                    title = stripped
             elif current_section == "content":
-                content += line + "\n"
+                content += stripped + "\n"
             elif current_section == "tags":
-                found = re.findall(r'#(\S+)', line)
+                found = re.findall(r'#(\S+)', stripped)
                 tags.extend(found)
 
+        # 如果标记解析失败（模型完全没按格式走）
+        # 尝试直接解析：第一行为标题，其余为正文，末尾找#标签
+        if not title and not content:
+            # 找到第一个含#的行前面的内容作为正文
+            tag_line_idx = -1
+            for i, line in enumerate(lines):
+                if '#' in line and re.search(r'#\S+', line):
+                    tag_line_idx = i
+                    break
+
+            if tag_line_idx > 0:
+                title = lines[0].strip()[:40]
+                content = "\n".join(lines[1:tag_line_idx]).strip()
+                tags = re.findall(r'#(\S+)', "\n".join(lines[tag_line_idx:]))
+            elif len(lines) > 0:
+                title = lines[0].strip()[:40]
+                content = "\n".join(lines[1:]).strip()
+
         # 清理
-        title = title.strip()
+        title = _clean_title(title)
         content = content.strip()
         tags = tags[:10]
 
-        # 如果解析失败，回退
-        if not title and not content:
+        # 如果解析出来是空的或太短，回退
+        if len(content) < 10:
             return self._fallback(fallback_topic, fallback_category)
 
         if not title:
@@ -247,6 +284,19 @@ class ContentGenerator:
             tags = [fallback_category, "好物推荐", "日常分享"]
 
         return {"title": title, "content": content, "tags": tags}
+
+
+def _clean_title(title: str) -> str:
+    """清理标题：去除非标题内容（语气词、多余空格）"""
+    # 去掉像 "2 user 可以了，继续 assistant" 这样的奇怪注入
+    title = re.sub(r'\d+\s*(user|assistant|system)\s*[：，,。.!！?？]*', '', title)
+    # 去掉过长结尾（模型有时候会在标题后塞整段文字）
+    if len(title) > 50:
+        # 尝试在第一个句号/感叹号处截断
+        match = re.search(r'^(.+?[。！？])', title)
+        if match:
+            title = match.group(1)
+    return title.strip()[:60]
 
     def _fallback(self, topic: str, category: str) -> dict:
         """回退方案：当 LLM 调用失败时使用模板"""
@@ -314,6 +364,10 @@ def run_agent(topic: str, platform: str = "xiaohongshu",
 
     api_key = cfg.api_key
     out_dir = cfg.output_dir
+
+    # 同步到环境变量（旧版 pipeline 直接从 os.environ 读）
+    if api_key:
+        os.environ["SILICONFLOW_API_KEY"] = api_key
 
     # ── 1. 写文案 ──
     print(f"\n✍️  正在写文案...（主题：{topic[:50]}...）")
