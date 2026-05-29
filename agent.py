@@ -365,9 +365,13 @@ def run_agent(topic: str, platform: str = "xiaohongshu",
     api_key = cfg.api_key
     out_dir = cfg.output_dir
 
-    # 同步到环境变量（旧版 pipeline 直接从 os.environ 读）
+    # 同步到环境变量（各模块直接从 os.environ 读）
     if api_key:
         os.environ["SILICONFLOW_API_KEY"] = api_key
+    if cfg.weixin_app_id:
+        os.environ["WEIXIN_APP_ID"] = cfg.weixin_app_id
+    if cfg.weixin_app_secret:
+        os.environ["WEIXIN_APP_SECRET"] = cfg.weixin_app_secret
 
     # ── 1. 写文案 ──
     print(f"\n✍️  正在写文案...（主题：{topic[:50]}...）")
@@ -472,7 +476,7 @@ def main():
 
     parser.add_argument("--topic", help="主题/灵感（一句话）")
     parser.add_argument("--platform", default="xiaohongshu",
-                        choices=["xiaohongshu", "wechat", "douyin"],
+                        choices=["xiaohongshu", "wechat", "douyin", "微信", "公众号"],
                         help="目标平台")
     parser.add_argument("--category", default="recommend",
                         choices=["recommend", "checkin", "daily", "knowledge"],

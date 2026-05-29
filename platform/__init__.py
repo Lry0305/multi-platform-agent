@@ -13,6 +13,7 @@ Platform SDK - 多平台内容发布抽象层
 
 from .base import BasePublisher
 from .xiaohongshu import XiaohongshuPublisher
+from .wechat import WechatPublisher
 
 
 def get_publisher(platform: str) -> BasePublisher:
@@ -20,6 +21,9 @@ def get_publisher(platform: str) -> BasePublisher:
     registry = {
         "xiaohongshu": XiaohongshuPublisher,
         "小红书": XiaohongshuPublisher,
+        "wechat": WechatPublisher,
+        "微信": WechatPublisher,
+        "公众号": WechatPublisher,
     }
     if platform not in registry:
         available = ", ".join(registry.keys())
