@@ -1,26 +1,29 @@
-# 系统文件
-.DS_Store
-Thumbs.db
+# 环境变量（含 API Key）
+.env
 
-# OpenClaw 配置（含 API Key、Token、会话数据）
-.openclaw/
-
-# Python 虚拟环境
-.venv/
-
-# Python 缓存
+# Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*.egg-info/
+dist/
 
-# 商业模拟数据
-*.xlsx
-*.xls
+# 输出目录（保留目录结构）
+output/images/*
+output/posts/*
+!output/images/.gitkeep
+!output/posts/.gitkeep
 
-# 主 agent 记忆（不含 xiaohongshu 的工作记忆）
-/memory/
+# macOS
+.DS_Store
 
-# 小红书自动生成的产出（可按需重新生成）
-agents/xiaohongshu/output/posts/
-agents/xiaohongshu/output/images/
-agents/xiaohongshu/output/html/
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 大文件
+*.png
+*.jpg
+*.jpeg
+!output/charts/*.png

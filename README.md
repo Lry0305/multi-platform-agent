@@ -1,194 +1,131 @@
-# 多平台内容发布 Agent
+# 🍒 多平台内容发布 Agent
 
-发内容用的。给个主题，自动写文案、配图，适配不同平台的格式。目前适配小红书，微信和抖音开发中。
+**给一个灵感/主题，自动写好文案、配好图、格式化成目标平台样式。**
 
----
-
-## 能干嘛
-
-- 写文案：根据主题自动生成内容，支持不同风格和方向
-- 出配图：根据文案内容自动生成图片描述，调硅基流动的 API 出图
-- 格式适配：输出内容按目标平台格式化（字数、排版、标签规则）
-- 批量产：写一个 JSON 配置，一次跑好几篇
-- 管理草稿：生成的东西自动存档，翻出来就能用
+已适配小红书，微信和抖音适配开发中。
 
 ---
 
-## 上手
-
-### 需要什么
-
-- Python 3.8+
-- 一个硅基流动的 API Key（去注册：https://cloud.siliconflow.cn/）
+## 快速开始
 
 ```bash
-# 下载
+# 1. 克隆
 git clone https://github.com/Lry0305/multi-platform-agent.git
 cd multi-platform-agent
 
-# 设环境变量（建议写进 ~/.zshrc 省得每次输）
-export SILICONFLOW_API_KEY="***"
-```
+# 2. 配置 API Key
+cp .env.example .env
+# 编辑 .env，填入 SILICONFLOW_API_KEY
+# 注册获取：https://cloud.siliconflow.cn/
 
-### 跑一篇试试
-
-新建一个文本文件，写点内容，比如 `content.txt`：
-
-```
-最近入了这款护手霜，真的惊艳到我了
-质地很润但是不油，涂完打字也不会留印
-味道是淡淡的柑橘调，很高级
-用了两周，手明显嫩了
-```
-
-然后跑：
-
-```bash
-cd agents/xiaohongshu
-python3 scripts/xiaohongshu_pipeline.py generate \
-    --title "用了两周的护手霜，手嫩到被同事追问" \
-    --file content.txt \
-    --category recommend \
-    --images 2
+# 3. 跑一篇试试
+python3 agent.py --topic "最近入了这款护手霜，手嫩到被同事追问"
 ```
 
 完事去 `output/posts/` 找草稿，配图在 `output/images/` 里。
 
 ---
 
-## 常用命令
+## 能干嘛
 
-### 完整生成一条
-
+### 🧠 **端到端内容生成**（新！）
 ```bash
-python3 scripts/xiaohongshu_pipeline.py generate \
-    --title "标题" \
-    --file content.txt \
-    --category recommend \
-    --vibe 温暖 \
-    --images 2
+# 完整流程：主题→文案→配图→草稿
+python3 agent.py --topic "周末去了一家藏在巷子里的咖啡馆" --category checkin --vibe 温暖
+
+# 自定义配图数
+python3 agent.py --topic "推荐3款面膜" --images 3
+
+# 先看看文案效果，不出图
+python3 agent.py --topic "我的书桌布置" --dry-run
+
+# 交互模式
+python3 agent.py --interactive
 ```
 
-| 参数 | 说明 |
-|------|------|
-| `--title` | 帖子标题 |
-| `--file` | 正文文件 |
-| `--content` | 直接写正文，用引号包起来 |
-| `--category` | 内容方向：recommend / checkin / daily / knowledge |
-| `--vibe` | 配图氛围：温暖 / 清新 / 复古 / 高级 / 活泼 / 治愈 |
-| `--images` | 配图数量，最多3张 |
-| `--model` | 出图模型，默认 Qwen/Qwen-Image |
-| `--no-image` | 只存文案不出图 |
-| `--html` | 额外生成一个 HTML 预览 |
+### ✍️ **文案生成**
+使用 LLM（硅基流动 API）自动生成小红书风格文案，支持四种内容方向：
 
-### 只看配图描述长啥样
+| 分类 | 适合什么 |
+|------|---------|
+| `recommend` | 好物推荐 |
+| `checkin` | 探店打卡 |
+| `daily` | 日常分享 |
+| `knowledge` | 知识科普 |
 
-```bash
-python3 scripts/xiaohongshu_pipeline.py prompt \
-    --scene "面霜瓶子在阳光下" \
-    --category recommend \
-    --images 2
-```
+### 🎨 **智能配图**
+根据文案内容自动推断场景，生成多个角度的配图描述（特写/俯拍/场景），调用硅基流动 API 出图。
 
-### 已有 prompt，单张出图
-
-```bash
-python3 scripts/xiaohongshu_pipeline.py image \
-    "你的 prompt 描述" \
-    --save
-```
-
-### 看草稿
-
-```bash
-python3 scripts/xiaohongshu_pipeline.py list            # 全部
-python3 scripts/xiaohongshu_pipeline.py view draft_xxx.md  # 某一篇
-```
-
-### 准备发布
-
-排版成可以直接粘贴的格式，顺便复制到剪贴板：
-
-```bash
-python3 scripts/xiaohongshu_pipeline.py publish draft_xxx.md
-```
-
-### 批量生成
-
-适合一次搞多篇。写个 JSON，比如 `recipes.json`：
-
-```json
-[
-  {
-    "title": "最近爱用的3款面膜",
-    "file": "content_mask.txt",
-    "category": "recommend",
-    "vibe": "清新",
-    "images": 2,
-    "tags": ["面膜推荐", "护肤"]
-  },
-  {
-    "title": "周末去的咖啡馆",
-    "file": "content_cafe.txt",
-    "category": "checkin",
-    "vibe": "温暖",
-    "images": 3,
-    "tags": ["探店", "咖啡"]
-  }
-]
-```
-
-跑一下：
-
-```bash
-python3 scripts/xiaohongshu_pipeline.py batch recipes.json
-```
-
----
-
-## 图片模型
-
-默认用通义千问：
-
+支持模型：
 - `Qwen/Qwen-Image` — 通义千问，日常够用
 - `Kwai-Kolors/Kolors` — 快手可图，中文理解好
 - `Tongyi-MAI/Z-Image` — 通义万相
 - `Tongyi-MAI/Z-Image-Turbo` — 通义万相快速版
 - `baidu/ERNIE-Image-Turbo` — 百度的
 
+### 📐 **平台格式化**
+同一篇内容，自动按不同平台的规则格式化：
+
+| 平台 | 状态 | 说明 |
+|------|------|------|
+| 小红书 | ✅ | 标题≤20字，正文短段落+emoji，标签5-8个 |
+| 微信公众平台 | 🚧 | 开发中，API 对接待完成 |
+| 抖音 | 🚧 | 开发中，API 对接待完成 |
+
+### 📦 **批量生成**
+一次跑好几篇：
+
+```bash
+python3 agent.py batch recipes.json
+```
+
+`recipes.json` 示例见 `agents/xiaohongshu/output/recipes_sample.json`。
+
 ---
 
-## 支持平台
+## 项目结构
 
-| 平台 | 状态 |
-|------|------|
-| 小红书 | ✅ 可用 |
-| 微信公众平台 | 🚧 开发中 |
-| 抖音 | 🚧 开发中 |
+```
+multi-platform-agent/
+├── agent.py                    # 🆕 Agent 大脑：端到端内容生成
+├── config.py                   # 🆕 配置加载（.env + 环境变量）
+├── .env.example                # 🆕 环境变量模板
+├── platform/                   # 🆕 平台发布 SDK
+│   ├── base.py                 #   抽象基类
+│   ├── xiaohongshu.py          #   小红书发布器
+│   ├── wechat.py               #   微信发布器（🚧）
+│   └── douyin.py               #   抖音发布器（🚧）
+├── agents/
+│   └── xiaohongshu/            # 小红书内容生成核心
+│       ├── scripts/
+│       │   ├── xiaohongshu_pipeline.py  # 主流程（prompt/出图/存草稿）
+│       │   ├── gen_image.py             # 图片生成工具
+│       │   └── preview_post.py          # HTML 预览
+│       ├── references/                  # 写作参考
+│       └── output/                      # 产出（草稿 + 配图）
+├── openclaw/                   # 🆕 OpenClaw agent 配置（使用 OpenClaw 时引用）
+├── skills/                     # 其他工具技能
+└── requirements.txt            # Python 依赖
+```
 
 ---
 
-## 文件结构
+## 开发计划
 
-```
-agents/
-└── xiaohongshu/                   # 小红书适配（后续按平台分目录）
-    ├── scripts/
-    │   ├── xiaohongshu_pipeline.py    # 主逻辑
-    │   ├── gen_image.py               # 调 API 出图
-    │   └── preview_post.py            # HTML 预览
-    ├── references/
-    │   ├── xiaohongshu-copywriting.md    # 文案怎么写
-    │   └── xiaohongshu-image-prompts.md  # 配图描述体系
-    ├── output/
-    │   ├── posts/                      # 草稿
-    │   └── images/                     # 配图
-    └── skills/
-```
+- [x] 配置系统（.env + config.py）
+- [x] 平台发布 SDK 抽象层
+- [x] Agent 端到端流程
+- [x] 解耦 OpenClaw
+- [ ] 微信公众平台 API 对接
+- [ ] 抖音 API 对接
+- [ ] Web UI 界面
+- [ ] 定时发布 / 内容日历
+
+---
 
 ## 几句废话
 
 - 文案走第一人称，短段落，多 emoji，小红书上常见的那个风格
-- 配图描述会自动生成多个角度（特写、俯拍、场景），不是一模一样来三张
-- 草稿是纯文本 Markdown，想改直接改
-- API Key 放环境变量，别写代码里——我一开始就踩了这坑，git push 完才想起来
+- 配图描述会自动生成多个角度，不是一模一样来三张
+- API Key 放 `.env` 文件，已加 `.gitignore`，别写代码里
+- 想跑 OpenClaw 版本？看 `openclaw/` 目录下的配置

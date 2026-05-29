@@ -1,9 +1,15 @@
-# 小红多平台内容生成 Agent
-# 目前使用 Python 标准库（urllib, json, os, re 等），无额外依赖
-# 如需以下功能，安装对应库：
+# 🍒 多平台内容发布 Agent
 #
-# 图片处理：  pip install Pillow
-# HTTP请求：  pip install requests
-# 剪贴板：    pip install pyperclip
+# 核心功能使用 Python 标准库（urllib, json, os, re 等），零外部依赖。
+# 以下为可选功能所需的包：
 #
-# 所有脚本通过 SILICONFLOW_API_KEY 环境变量读取 API Key
+# Pillow      → 图片处理（压缩、裁剪、水印）
+# pyperclip   → 自动复制到剪贴板（publish 命令用）
+# pyyaml      → 支持 YAML 格式的 recipes 文件
+# python-dotenv → .env 文件加载（当前已内置简易版）
+#
+# 安装全部可选依赖：
+#   pip install -r requirements.txt
+#
+# 只装你最需要的：
+#   pip install pyperclip   # 最常用：复制到剪贴板
