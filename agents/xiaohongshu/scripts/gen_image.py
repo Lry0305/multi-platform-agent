@@ -52,8 +52,14 @@ def generate_image(prompt, model="Qwen/Qwen-Image", size="1024x1024", n=1):
         return {"error": str(e), "detail": error_body}
 
 
-def download_image(url, output_dir="agents/xiaohongshu/output"):
+# 脚本所在目录
+AGENT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def download_image(url, output_dir=None):
     """下载图片到本地"""
+    if output_dir is None:
+        output_dir = os.path.join(AGENT_DIR, "output")
     os.makedirs(output_dir, exist_ok=True)
     timestamp = int(time.time())
     filename = f"xiaohongshu_{timestamp}.png"

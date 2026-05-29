@@ -122,7 +122,7 @@ def parse_draft(filepath):
     tag_section = re.search(r'(#[\u4e00-\u9fa5\w]+[\s#\u4e00-\u9fa5\w]*)', body)
     if tag_section:
         tag_line = tag_section.group(0)
-        tags = re.findall(r'#([\u4e00-\u9fa5\w]+)', tag_line)
+        tags = re.findall(r'#([\u4e00-\u9fa5a-zA-Z][\u4e00-\u9fa5\w]*)', tag_line)
 
     # 提取配图链接
     images = re.findall(r'!\[.*?\]\((.*?)\)', body)

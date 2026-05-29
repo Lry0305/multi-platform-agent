@@ -123,17 +123,8 @@ def auto_generate_multi_prompts(scene, category="recommend", product_name="", vi
 # ============================================================
 
 def _get_api_key():
-    env_key = os.environ.get("SILICONFLOW_API_KEY")
-    if env_key:
-        return env_key
-    tools_path = os.path.join(WORKSPACE, "TOOLS.md")
-    if os.path.exists(tools_path):
-        with open(tools_path) as f:
-            for line in f:
-                match = re.search(r'(sk-[a-zA-Z0-9]+)', line)
-                if match and not line.strip().startswith("#"):
-                    return match.group(1)
-    return None
+    """从环境变量读取 API Key（安全性：不读文件，只在环境变量中获取）"""
+    return os.environ.get("SILICONFLOW_API_KEY")
 
 
 def download_image(url, output_dir=None):
@@ -681,7 +672,7 @@ def publish_draft(filepath, copy_clipboard=True):
     # 提取标签
     tags = []
     for line in raw.split("\n"):
-        tags_found = re.findall(r'#([\u4e00-\u9fa5\w]+)', line)
+        tags_found = re.findall(r'#([\u4e00-\u9fa5a-zA-Z][\u4e00-\u9fa5\w]*)', line)
         tags.extend(t for t in tags_found if t not in ['配图', '分类', '创建', '状态', '配图数', '生成记录'])
     tags = list(dict.fromkeys(tags))  # 去重保序
     

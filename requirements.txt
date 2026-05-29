@@ -1,0 +1,9 @@
+# 小红多平台内容生成 Agent
+# 目前使用 Python 标准库（urllib, json, os, re 等），无额外依赖
+# 如需以下功能，安装对应库：
+#
+# 图片处理：  pip install Pillow
+# HTTP请求：  pip install requests
+# 剪贴板：    pip install pyperclip
+#
+# 所有脚本通过 SILICONFLOW_API_KEY 环境变量读取 API Key

@@ -20,6 +20,7 @@ __pycache__/
 # 主 agent 记忆（不含 xiaohongshu 的工作记忆）
 /memory/
 
-# 小红书自动生成的配图/HTML预览（可按需重新生成）
+# 小红书自动生成的产出（可按需重新生成）
+agents/xiaohongshu/output/posts/
 agents/xiaohongshu/output/images/
 agents/xiaohongshu/output/html/
