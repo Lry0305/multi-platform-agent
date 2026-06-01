@@ -2,33 +2,12 @@
 """
 🍒 多平台内容发布 Agent
 
-核心流程（端到端）：
-  主题/灵感 → LLM 写文案 → 自动配图 prompt → 生成配图 → 
-  平台格式化 → 生成草稿 → (可选)自动发布
-
-这是真正的 "agent" 大脑。pipeline 是工具，agent 是做决策的那个。
+给个主题，自动写文案、出配图、按平台格式排好版。
 
 用法:
-  # 完整流程：给个主题，自动出一篇
-  python3 agent.py \
-      --topic "最近入了这款护手霜，真的惊艳到我了" \
-      --platform xiaohongshu \
-      --images 2
-
-  # 指定分类和氛围
-  python3 agent.py \
-      --topic "周末去了一家藏在巷子里的咖啡馆" \
-      --platform xiaohongshu \
-      --category checkin \
-      --vibe 温暖
-
-  # 只出文案+配图prompt，不出图
-  python3 agent.py \
-      --topic "推荐3款平价好用的面膜" \
-      --platform xiaohongshu \
-      --dry-run
-
-  # 交互模式：agent 主动问你要什么
+  python3 agent.py --topic "最近入了这款护手霜" --platform xiaohongshu --images 2
+  python3 agent.py --topic "周末探店" --category checkin --vibe 温暖
+  python3 agent.py --topic "3款面膜推荐" --dry-run
   python3 agent.py --interactive
 
 环境变量: 见 .env.example
@@ -137,6 +116,143 @@ class ContentGenerator:
 
 【TAGS】
 #标签1 #标签2 #标签3""",
+
+        "compare": """你扮演一个会写小红书测评对比文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，两款都真实用过
+- 从多个维度对比（价格、质地、效果、适合人群）
+- 每段短，有对比感
+- 诚实说各自的优缺点
+- 结尾给出选择建议
+- 总字数400-800字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
+
+        "collection": """你扮演一个会写小红书合集推荐文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，像在分享自己的珍藏
+- 逐一介绍每个单品：名称、价格、为什么买、使用感受
+- 每段短，有统一结构
+- 推荐指数用 ★★★★☆ 格式
+- 结尾互动
+- 总字数400-800字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
+
+        "anti_haul": """你扮演一个会写小红书踩雷吐槽文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，诚实吐槽，有理有据
+- 分点列出槽点（宣传不符、性价比低、使用感差）
+- 每段短，用❌开头
+- 结尾给建议（什么人别买、平替推荐）
+- 总字数300-600字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
+
+        "tutorial": """你扮演一个会写小红书教程/步骤文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，像在教朋友
+- 步骤清晰，每一步写明具体操作
+- 每段短，用Step 1/2/3 或 ① ② ③ 编号
+- 加入小贴士（避坑、进阶玩法）
+- 总字数300-700字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
+
+        "unboxing": """你扮演一个会写小红书开箱体验文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，像正在拆快递的兴奋感
+- 写包装、第一印象、细节感受
+- 每段短，有画面感
+- 诚实说和预期是否一致
+- 总字数200-500字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
+
+        "qa": """你扮演一个会写小红书问答答疑文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，像在统一回复粉丝
+- 用Q&A格式，每个问题+答案
+- 每段短，清晰明了
+- 适度使用 emoji
+- 5-10个问题，覆盖常见疑问
+- 总字数400-800字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
+
+        "story": """你扮演一个会写小红书情绪故事文案的助手。根据用户主题，输出三部分内容。
+
+写作规则：
+- 第一人称，像在讲自己的故事
+- 有故事线：背景→转折→现在
+- 穿插真实细节和感悟
+- 每段短，有情绪张力
+- 结尾温暖的总结+互动
+- 总字数300-600字
+
+输出格式（必须严格按以下标记）：
+【TITLE】
+一行标题
+
+【CONTENT】
+正文，多段落
+
+【TAGS】
+#标签1 #标签2 #标签3""",
     }
 
     def __init__(self, api_key: str, model: str = "Qwen/Qwen2.5-7B-Instruct"):
@@ -186,7 +302,7 @@ class ContentGenerator:
         except Exception as e:
             print(f"⚠️  LLM 调用失败: {e}")
             print("   回退到基础模板...")
-            return self._fallback(topic, category)
+            return _fallback(topic, category)
 
         return self._parse_output(raw_text, topic, category)
 
@@ -275,7 +391,7 @@ class ContentGenerator:
 
         # 如果解析出来是空的或太短，回退
         if len(content) < 10:
-            return self._fallback(fallback_topic, fallback_category)
+            return _fallback(fallback_topic, fallback_category)
 
         if not title:
             title = fallback_topic[:30]
@@ -298,7 +414,7 @@ def _clean_title(title: str) -> str:
             title = match.group(1)
     return title.strip()[:60]
 
-    def _fallback(self, topic: str, category: str) -> dict:
+def _fallback(topic: str, category: str) -> dict:
         """回退方案：当 LLM 调用失败时使用模板"""
         emoji_map = {
             "recommend": "🏆",
@@ -338,7 +454,7 @@ def infer_scene(title: str, content: str, category: str) -> str:
 # 草稿保存 & 发布 (整合 pipeline)
 # ============================================================
 
-from agents.xiaohongshu.scripts.xiaohongshu_pipeline import (
+from scripts.xiaohongshu_pipeline import (
     auto_generate_multi_prompts,
     generate_and_save_images,
     save_draft as pipeline_save_draft,
@@ -350,7 +466,8 @@ def run_agent(topic: str, platform: str = "xiaohongshu",
               category: str = "recommend", vibe: str = "温暖",
               image_count: int = 2, model: str = "Qwen/Qwen-Image",
               dry_run: bool = False, extra_instructions: str = "",
-              no_image: bool = False, interactive: bool = False):
+              no_image: bool = False, interactive: bool = False,
+              style: str = "clean"):
     """
     运行 agent 完整流程：
     主题 → 写文案 → 配图prompt → 出图 → 平台格式化 → 存草稿 → 发布
@@ -420,7 +537,7 @@ def run_agent(topic: str, platform: str = "xiaohongshu",
         for w in warnings:
             print(f"   • {w}")
 
-    formatted = publisher.format_post(post)
+    formatted = publisher.format_post(post, style=style)
 
     # ── 6. 预览 ──
     print(f"\n📱 [{publisher.platform_name}] 预览:")
@@ -436,7 +553,7 @@ def run_agent(topic: str, platform: str = "xiaohongshu",
         print("\n⏭️  Dry-run 模式：跳过保存")
 
     # ── 8. 发布 ──
-    pub_result = publisher.publish(post, formatted)
+    pub_result = publisher.publish(post, formatted, style=style)
 
     return {
         "title": title,
@@ -479,11 +596,17 @@ def main():
                         choices=["xiaohongshu", "wechat", "douyin", "微信", "公众号"],
                         help="目标平台")
     parser.add_argument("--category", default="recommend",
-                        choices=["recommend", "checkin", "daily", "knowledge"],
+                        choices=["recommend", "checkin", "daily", "knowledge",
+                                 "compare", "collection", "anti_haul",
+                                 "tutorial", "unboxing", "qa", "story"],
                         help="内容分类")
     parser.add_argument("--vibe", default="温暖",
                         choices=["温暖", "清新", "复古", "高级", "活泼", "治愈"],
                         help="配图氛围")
+    parser.add_argument("--style", default="clean",
+                        choices=["clean", "chatty", "bold", "diary",
+                                 "tech", "literary", "business"],
+                        help="排版风格: 小红书: clean(简洁) chatty(聊天) bold(加粗) diary(日记) | 公众号: clean(简洁) tech(科技) literary(文艺) business(商务)")
     parser.add_argument("--images", type=int, default=2,
                         help="配图数量 (1-3)")
     parser.add_argument("--model", default="Qwen/Qwen-Image",
@@ -526,6 +649,7 @@ def main():
                 model=args.model,
                 dry_run=args.dry_run,
                 no_image=args.no_image,
+                style=args.style,
             )
             print()
     else:
@@ -543,6 +667,7 @@ def main():
             dry_run=args.dry_run,
             no_image=args.no_image,
             extra_instructions=args.extra,
+            style=args.style,
         )
 
 

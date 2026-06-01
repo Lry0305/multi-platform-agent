@@ -173,7 +173,7 @@ class WechatPublisher(BasePublisher):
 
     # ── 草稿管理 ──
 
-    def _create_draft(self, post: Post, cover_url: str = "") -> str:
+    def _create_draft(self, post: Post, cover_url: str = "", theme: str = "clean") -> str:
         """
         创建图文草稿。
         返回 media_id。
@@ -181,8 +181,8 @@ class WechatPublisher(BasePublisher):
         token = self._get_access_token()
         url = f"{self.API_BASE}/draft/add?access_token={token}"
 
-        # 正文：把 Markdown 转成微信支持的 HTML
-        content_html = self._md_to_wechat_html(post.content)
+        # 正文：把 Markdown 转成微信支持的 HTML（按主题排版）
+        content_html = self._md_to_wechat_html(post.content, theme=theme)
 
         article = {
             "title": post.title,
@@ -229,49 +229,239 @@ class WechatPublisher(BasePublisher):
         print(f"  ✅ 已提交发布: publish_id={publish_id}")
         return publish_id
 
+    # ── 排版主题 ──
+
+    THEMES = {
+        "clean": {
+            "name": "简洁风",
+            "bg": "#FFFFFF",
+            "section_bg": "#F8F8F8",
+            "title_color": "#333333",
+            "text_color": "#555555",
+            "accent_color": "#07C160",
+            "border_color": "#E8E8E8",
+            "font_family": "-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif",
+            "title_size": "18px",
+            "body_size": "15px",
+            "decoration": "minimal",
+        },
+        "tech": {
+            "name": "科技风",
+            "bg": "#0A1628",
+            "section_bg": "#112240",
+            "title_color": "#64FFDA",
+            "text_color": "#CCD6F6",
+            "accent_color": "#64FFDA",
+            "border_color": "#1D3A5C",
+            "font_family": "'SF Mono', 'Fira Code', 'PingFang SC', monospace",
+            "title_size": "20px",
+            "body_size": "14px",
+            "decoration": "code_blocks",
+        },
+        "literary": {
+            "name": "文艺风",
+            "bg": "#FDF8F0",
+            "section_bg": "#FAF3E6",
+            "title_color": "#8B4513",
+            "text_color": "#5D4037",
+            "accent_color": "#D4A574",
+            "border_color": "#EDE0D4",
+            "font_family": "'Georgia', 'Noto Serif SC', 'STSong', serif",
+            "title_size": "19px",
+            "body_size": "15px",
+            "decoration": "ornate",
+        },
+        "business": {
+            "name": "商务风",
+            "bg": "#FFFFFF",
+            "section_bg": "#F0F4F8",
+            "title_color": "#1A365D",
+            "text_color": "#2D3748",
+            "accent_color": "#3182CE",
+            "border_color": "#CBD5E0",
+            "font_family": "'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif",
+            "title_size": "18px",
+            "body_size": "14px",
+            "decoration": "structured",
+        },
+    }
+
+    def get_theme_css(self, theme: str) -> str:
+        t = self.THEMES.get(theme, self.THEMES["clean"])
+        return t
+
+    def _md_to_wechat_html(self, md: str, theme: str = "clean") -> str:
+        t = self.THEMES.get(theme, self.THEMES["clean"])
+
+        html_parts = []
+        para_count = 0
+
+        for line in md.split("\n"):
+            stripped = line.strip()
+
+            if not stripped:
+                continue
+
+            para_count += 1
+            is_odd = para_count % 2 == 1
+            bg = t["section_bg"] if is_odd else t["bg"]
+            padding_style = 'padding: 12px 16px;'
+            bg_style = f'background: {bg};'
+
+            if stripped.startswith("## "):
+            if stripped.startswith("## "):
+                text = stripped[3:]
+                html_parts.append(
+                    f'<section style="text-align: center; margin: 20px 0 12px; {padding_style}">'
+                    f'<h2 style="color: {t["title_color"]}; '
+                    f'font-size: {t["title_size"]}; '
+                    f'font-family: {t["font_family"]}; '
+                    f'font-weight: bold; margin: 0; '
+                    f'border-bottom: 2px solid {t["accent_color"]}; '
+                    f'padding-bottom: 8px; display: inline-block;">'
+                    f'{text}</h2></section>'
+                )
+                continue
+
+            if stripped.startswith("# "):
+                text = stripped[2:]
+                html_parts.append(
+                    f'<section style="text-align: center; margin: 24px 0 16px; {padding_style}">'
+                    f'<h1 style="color: {t["title_color"]}; '
+                    f'font-size: 22px; '
+                    f'font-family: {t["font_family"]}; '
+                    f'font-weight: bold; margin: 0; '
+                    f'letter-spacing: 1px;">'
+                    f'{text}</h1></section>'
+                )
+                continue
+
+            # 处理 **加粗** 和普通段落
+            processed = self._process_inline(stripped, t)
+
+            # 主题特殊装饰
+            decoration_html = ""
+            if t["decoration"] == "code_blocks" and stripped.startswith("`"):
+                # 代码块风格
+                html_parts.append(
+                    f'<section style="{bg_style} border-left: 3px solid {t["accent_color"]}; '
+                    f'border-radius: 4px; margin: 8px 0; padding: 12px 16px;">'
+                    f'<code style="color: {t["accent_color"]}; '
+                    f'font-family: \'SF Mono\', monospace; font-size: 13px;">'
+                    f'{processed}</code></section>'
+                )
+            elif t["decoration"] == "ornate" and para_count % 5 == 0:
+                # 文艺风分隔装饰
+                html_parts.append(
+                    f'<section style="text-align: center; color: {t["accent_color"]}; '
+                    f'font-size: 18px; margin: 16px 0; opacity: 0.6;">'
+                    f'✦ ✦ ✦</section>'
+                )
+                html_parts.append(
+                    f'<section style="{bg_style} {padding_style} '
+                    f'border-radius: 4px; margin: 4px 0;">'
+                    f'<p style="color: {t["text_color"]}; '
+                    f'font-size: {t["body_size"]}; '
+                    f'font-family: {t["font_family"]}; '
+                    f'line-height: 1.8; margin: 0;">{processed}</p></section>'
+                )
+            elif t["decoration"] == "structured" and (
+                stripped.startswith("-") or stripped.startswith("•")
+            ):
+                # 商务风列表
+                html_parts.append(
+                    f'<section style="{bg_style} {padding_style} '
+                    f'margin: 2px 0; padding-left: 24px;">'
+                    f'<p style="color: {t["text_color"]}; '
+                    f'font-size: {t["body_size"]}; '
+                    f'font-family: {t["font_family"]}; '
+                    f'line-height: 1.7; margin: 0;">'
+                    f'<span style="color: {t["accent_color"]}; font-weight: bold;">▸</span> '
+                    f'{processed.lstrip("-• ").strip()}</p></section>'
+                )
+            else:
+                # 默认段落
+                html_parts.append(
+                    f'<section style="{bg_style} {padding_style} '
+                    f'border-radius: 4px; margin: 4px 0;">'
+                    f'<p style="color: {t["text_color"]}; '
+                    f'font-size: {t["body_size"]}; '
+                    f'font-family: {t["font_family"]}; '
+                    f'line-height: 1.8; margin: 0;">{processed}</p></section>'
+                )
+
+        # 整体内容包装
+        content = "\n".join(html_parts)
+
+        # 科技风特殊：开头加个装饰条
+        if t["decoration"] == "code_blocks":
+            content = (
+                f'<section style="background: {t["section_bg"]}; '
+                f'border-radius: 8px; padding: 4px 0; margin-bottom: 8px;">'
+                f'<pre style="color: {t["accent_color"]}; '
+                f'font-family: \'SF Mono\', monospace; font-size: 12px; '
+                f'text-align: center; margin: 4px 0;">'
+                f'╔══════════════════════╗\n'
+                f'║   T E C H          ║\n'
+                f'╚══════════════════════╝</pre></section>'
+                f'{content}'
+            )
+
+        return content
+
+    def _process_inline(self, text: str, theme: dict) -> str:
+        """处理行内格式：**加粗** *斜体* `代码` 等"""
+        # **加粗**
+        text = text.replace("**", "<strong>", 1)
+        text = text.replace("**", "</strong>", 1)
+        while "**" in text:
+            text = text.replace("**", "<strong>", 1)
+            text = text.replace("**", "</strong>", 1)
+        # `行内代码`
+        import re as _re
+        text = _re.sub(r'`([^`]+)`',
+                       lambda m: f'<code style="background: {theme["section_bg"]}; '
+                                 f'color: {theme["accent_color"]}; '
+                                 f'padding: 2px 6px; border-radius: 3px; '
+                                 f'font-size: 13px;">{m.group(1)}</code>',
+                       text)
+        return text
+
     # ── 格式转换 ──
 
-    def _md_to_wechat_html(self, md: str) -> str:
+    def _md_to_wechat_html_original(self, md: str) -> str:
         """
-        简单的 Markdown → 微信 HTML 转换。
-        微信编辑器支持部分 HTML 标签。
+        原版简单 Markdown → HTML（保留作 fallback）
         """
         html_parts = []
         for line in md.split("\n"):
             stripped = line.strip()
-
-            # 空行
             if not stripped:
                 html_parts.append("<p><br/></p>")
                 continue
-
-            # 标题（# 开头）
             if stripped.startswith("## "):
                 html_parts.append(f"<h2>{stripped[3:]}</h2>")
             elif stripped.startswith("# "):
                 html_parts.append(f"<h1>{stripped[2:]}</h1>")
-
-            # **加粗**
             elif "**" in stripped:
-                processed = stripped.replace("**", "<strong>", 1)
-                processed = processed.replace("**", "</strong>", 1)
-                # 处理多对 **
+                processed = stripped
                 while "**" in processed:
                     processed = processed.replace("**", "<strong>", 1)
                     processed = processed.replace("**", "</strong>", 1)
                 html_parts.append(f"<p>{processed}</p>")
-
             else:
                 html_parts.append(f"<p>{stripped}</p>")
-
         return "\n".join(html_parts)
 
     # ── 对外接口 ──
 
-    def format_post(self, post: Post) -> str:
-        """微信格式排版（Markdown 预览用）"""
+    def format_post(self, post: Post, style: str = "clean") -> str:
+        """微信格式排版（Markdown 预览用，标注当前主题）"""
+        t = self.THEMES.get(style, self.THEMES["clean"])
         parts = []
         parts.append(f"# {post.title}")
+        parts.append("")
+        parts.append(f"> 排版主题：{t['name']}")
         parts.append("")
         if post.images:
             parts.append(f"![封面]({post.images[0]})")
@@ -283,8 +473,8 @@ class WechatPublisher(BasePublisher):
             parts.append(" ".join([f"#{t}" for t in post.tags]))
         return "\n".join(parts)
 
-    def publish(self, post: Post, post_text: str) -> dict:
-        """发布到微信公众平台"""
+    def publish(self, post: Post, post_text: str, style: str = "clean") -> dict:
+        """发布到微信公众平台，支持排版主题"""
         if not self._app_id or not self._app_secret:
             print("\n⚠️  未配置 WEIXIN_APP_ID 和 WEIXIN_APP_SECRET")
             print("   请在 .env 中配置后重试")
@@ -304,7 +494,7 @@ class WechatPublisher(BasePublisher):
 
             # 2. 创建草稿
             print("  📝 创建图文草稿...")
-            media_id = self._create_draft(post, cover_url)
+            media_id = self._create_draft(post, cover_url, theme=style)
 
             # 3. 发布
             print("  🚀 提交发布...")

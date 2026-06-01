@@ -38,24 +38,75 @@ class XiaohongshuPublisher(BasePublisher):
     def max_images(self) -> int:
         return 3
 
-    def format_post(self, post: Post) -> str:
+    # 排版风格映射
+    STYLE_NAMES = {
+        "clean": "简洁风",
+        "chatty": "聊天风",
+        "bold": "重点加粗风",
+        "diary": "日记风",
+    }
+
+    def format_post(self, post: Post, style: str = "clean") -> str:
         """
-        按小红书风格排版：
-          标题 → 空行 → 正文 → 空行 → 标签 → 空行 → 图片标记
+        按小红书风格排版，支持多种排版风格。
+
+        style 可选: clean(简洁/默认), chatty(聊天), bold(加粗), diary(日记)
         """
         parts = []
 
         # 1. 标题（加 emoji 装饰）
         title = post.title.strip()
-        if not re.match(r'^[📌📍🏆☀️📖📝🍒]', title):
+        title_emoji = re.match(r'^([📌📍🏆☀️📖📝🍒⚖️🎯😤🔧📦🙋💭])', title)
+        if not title_emoji:
             title = f"📌 {title}"
         parts.append(title)
         parts.append("")
 
-        # 2. 正文 - 确保段落短、有留白
+        # 2. 正文 - 根据风格处理
         content = post.content.strip()
-        # 把连续大段按句子拆成短段落（适配手机阅读）
-        content = self._ensure_short_paragraphs(content)
+
+        if style == "clean":
+            # 简洁风：短段落、干净（默认）
+            content = self._ensure_short_paragraphs(content)
+
+        elif style == "chatty":
+            # 聊天风：碎片化、多语气词
+            content = self._ensure_short_paragraphs(content)
+            # 在段落间插入语气词
+            lines = content.split("\n\n")
+            chatty_inserts = ["对，就是这种感觉",
+                              "真的真的强烈安利",
+                              "谁懂啊！",
+                              "你们是不是也这样"]
+            new_lines = []
+            for i, line in enumerate(lines):
+                new_lines.append(line)
+                if i < len(lines) - 1 and i < len(chatty_inserts) and len(line.strip()) > 10:
+                    new_lines.append(chatty_inserts[i])
+            content = "\n\n".join(new_lines)
+
+        elif style == "bold":
+            # 重点加粗风：关键句加 **
+            content = self._ensure_short_paragraphs(content)
+            lines = content.split("\n\n")
+            for i, line in enumerate(lines):
+                line = line.strip()
+                if len(line) > 15 and i < len(lines) - 1:
+                    # 第一句加粗作为核心结论
+                    sentences = re.split(r'[，。！？]', line, 1)
+                    if len(sentences) > 1:
+                        lines[i] = f"**{sentences[0]}**，{sentences[1]}"
+                    elif len(line) > 10:
+                        lines[i] = f"**{line}**"
+            content = "\n\n".join(lines)
+
+        elif style == "diary":
+            # 日记风：日期开头 + 小尾巴
+            from datetime import datetime
+            today = datetime.now().strftime("%Y.%m.%d")
+            content = self._ensure_short_paragraphs(content)
+            content = f"📅 {today}\n\n{content}\n\n—— 今天也要开心呀 ✨"
+
         parts.append(content)
         parts.append("")
 

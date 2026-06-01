@@ -56,9 +56,10 @@ class BasePublisher(ABC):
         return 3
 
     @abstractmethod
-    def format_post(self, post: Post) -> str:
+    def format_post(self, post: Post, style: str = "clean") -> str:
         """
         将 Post 格式化为平台适配的排版文本。
+        style 参数用于选择排版主题（不同平台支持不同主题）。
         返回可直接粘贴或发布的内容。
         """
         pass
@@ -82,9 +83,10 @@ class BasePublisher(ABC):
             )
         return warnings
 
-    def publish(self, post: Post, post_text: str) -> dict:
+    def publish(self, post: Post, post_text: str, style: str = "clean") -> dict:
         """
         发布到平台（默认实现：仅输出到控制台）。
+        style 参数用于选择排版主题。
         各平台子类可重写此方法对接 API。
 
         返回:
