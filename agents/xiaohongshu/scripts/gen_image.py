@@ -18,10 +18,7 @@ import time
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 
-API_KEY = os.environ.get("SILICONFLOW_API_KEY", "")
-if not API_KEY:
-    print("❌ 请设置环境变量 SILICONFLOW_API_KEY", file=sys.stderr)
-    sys.exit(1)
+API_KEY = "sk-sbcsqgshydexdjkdoyglqmodgfvenhrqbrvpelfmsenjxlgc"
 API_URL = "https://api.siliconflow.cn/v1/images/generations"
 
 def generate_image(prompt, model="Qwen/Qwen-Image", size="1024x1024", n=1):
@@ -52,14 +49,8 @@ def generate_image(prompt, model="Qwen/Qwen-Image", size="1024x1024", n=1):
         return {"error": str(e), "detail": error_body}
 
 
-# 脚本所在目录
-AGENT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-def download_image(url, output_dir=None):
+def download_image(url, output_dir="output"):
     """下载图片到本地"""
-    if output_dir is None:
-        output_dir = os.path.join(AGENT_DIR, "output")
     os.makedirs(output_dir, exist_ok=True)
     timestamp = int(time.time())
     filename = f"xiaohongshu_{timestamp}.png"

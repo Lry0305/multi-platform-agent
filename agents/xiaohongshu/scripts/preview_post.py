@@ -9,13 +9,13 @@
 
 用法:
   # 渲染单篇草稿
-  python3 agents/xiaohongshu/scripts/preview_post.py render output/posts/draft_xxx.md
+  python3 scripts/preview_post.py render output/posts/draft_xxx.md
 
   # 渲染并打开浏览器
-  python3 agents/xiaohongshu/scripts/preview_post.py open output/posts/draft_xxx.md
+  python3 scripts/preview_post.py open output/posts/draft_xxx.md
 
   # 从 generate 管道直接输出 HTML
-  python3 agents/xiaohongshu/scripts/xiaohongshu_pipeline.py generate ... --html
+  python3 scripts/xiaohongshu_pipeline.py generate ... --html
 """
 
 import os
@@ -122,7 +122,7 @@ def parse_draft(filepath):
     tag_section = re.search(r'(#[\u4e00-\u9fa5\w]+[\s#\u4e00-\u9fa5\w]*)', body)
     if tag_section:
         tag_line = tag_section.group(0)
-        tags = re.findall(r'#([\u4e00-\u9fa5a-zA-Z][\u4e00-\u9fa5\w]*)', tag_line)
+        tags = re.findall(r'#([\u4e00-\u9fa5\w]+)', tag_line)
 
     # 提取配图链接
     images = re.findall(r'!\[.*?\]\((.*?)\)', body)

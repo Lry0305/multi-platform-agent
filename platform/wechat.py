@@ -309,7 +309,6 @@ class WechatPublisher(BasePublisher):
             bg_style = f'background: {bg};'
 
             if stripped.startswith("## "):
-            if stripped.startswith("## "):
                 text = stripped[3:]
                 html_parts.append(
                     f'<section style="text-align: center; margin: 20px 0 12px; {padding_style}">'
