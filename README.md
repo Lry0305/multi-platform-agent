@@ -8,7 +8,10 @@
 git clone https://github.com/Lry0305/multi-platform-agent.git
 cd multi-platform-agent
 bash setup.sh
-# 编辑 .env，填入 SILICONFLOW_API_KEY
+# 编辑 .env，把 API Key 填进去
+# 打开文件：open .env （Mac）或 vi .env
+# 把 SILICONFLOW_API_KEY= 后面改成你的 key
+# 没有 key？去 https://cloud.siliconflow.cn/ 注册 -> API Key 管理 -> 创建
 python3 agent.py --topic "用了两周的护手霜，手真的不干了"
 ```
 
