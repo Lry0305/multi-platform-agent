@@ -7,7 +7,7 @@
 ```bash
 git clone https://github.com/Lry0305/multi-platform-agent.git
 cd multi-platform-agent
-cp .env.example .env
+bash setup.sh
 # 编辑 .env，填入 SILICONFLOW_API_KEY
 python3 agent.py --topic "用了两周的护手霜，手真的不干了"
 ```
