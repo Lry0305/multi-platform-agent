@@ -1,74 +1,67 @@
-# 多平台内容发布 Agent — 说明文档
+# 多平台内容发布 Agent
 
-## 这东西干嘛的
+## 概述
 
-给个主题，自动写文案、出配图、排好版，能直接发小红书/公众号/抖音。也可以连 ComfyUI 出视频。Hermes 或其他智能体通过命令行调用就行。
-
----
+输入一个主题，自动生成文案和配图，按平台格式输出。目前支持小红书、微信公众号、抖音。通过命令行调用，也可以对接其他智能体。
 
 ## 基于 OpenClaw 做了什么
 
-OpenClaw 本身是个 Agent 框架，提供了基础设施。在这之上主要做了几件事：
+OpenClaw 提供 Agent 框架和基础设施，在这个基础上做了几层东西：
 
 **文案生成**
-写了 11 套写作模板，每套对应不同内容方向（推荐、探店、科普、测评、吐槽……）。输入一句话，AI 自动出标题、正文、标签。会控制语气、段落长度、emoji 密度，不至于写成机器人。
+11 套写作模板，每套对应一个内容方向（推荐、探店、科普、测评、吐槽等）。输入主题后，由 LLM 生成标题、正文、标签。每个方向控制了语气、段落长度、emoji 密度。
 
 **配图系统**
-做了个映射表——根据内容类型+氛围风格（温暖/清新/复古/高级/活泼/治愈），自动组出不同角度的图片描述。一次生成 1-3 张，每张角度不一样（特写、俯拍、场景、细节），不会三张长一样。
+根据内容类型和氛围风格（温暖/清新/复古/高级/活泼/治愈），自动拼接不同角度的图片描述。一次生成 1-3 张，每张构图不同（特写、俯拍、场景、细节），不是简单复制。
 
 **多平台适配**
-统一的数据结构，分别适配了小红书、公众号、抖音的排版规则。小红书控制字数+emoji，公众号走富文本，抖音短文案。同一个内容换平台就换输出格式，不用重新写。
+统一的数据结构，分别对接了小红书、公众号、抖音的格式。同一份内容换平台会按对应规则重新排版。
 
-**配置体系**
-API Key 走环境变量或 .env 文件，不写死在代码里。启动时会检测配置完整度，缺什么提示什么。
+**配置管理**
+API Key 走环境变量或 .env 文件。启动时检查配置完整性，缺什么提示什么。
 
-**视频生成（实验性）**
-对接了 ComfyUI 的文生视频能力。可以远程连 AutoDL 上的 ComfyUI 实例出视频，指定 host 就行。
+**视频生成（实验）**
+通过 ComfyUI 接口生成视频，支持远程 GPU 实例调用。
 
-**一键部署**
-一个 setup.sh，装依赖、建目录、检查配置，clone 完跑一行就能用。
+**部署脚本**
+一个 setup.sh，处理依赖安装、目录创建、配置检查。
 
-**其他**
-草稿管理、批量生成、HTML 预览、交互模式——都是围绕"方便用"做的。
-
----
+**其他实用功能**
+草稿管理、批量生成、HTML 预览、交互模式。
 
 ## 项目结构
 
 ```
 multi-platform-agent/
-├── agent.py                   # 主入口，端到端流程
-├── config.py                  # 配置加载
-├── setup.sh                   # 一键环境配置
-├── .env                       # API Key 配置文件
-├── platform/                  # 各平台发布器（小红书/公众号/抖音）
-│   ├── base.py                # 抽象基类
+├── agent.py                   # 主入口
+├── config.py                  # 配置
+├── setup.sh                   # 环境配置
+├── .env                       # API Key
+├── platform/                  # 各平台发布器
+│   ├── base.py
 │   ├── xiaohongshu.py
 │   ├── wechat.py
 │   └── douyin.py
 ├── scripts/
-│   ├── xiaohongshu_pipeline.py    # 管线脚本（单篇/批量/草稿管理）
-│   ├── gen_image.py               # 单张出图
-│   ├── comfyui_video.py           # ComfyUI 视频生成
-│   └── preview_post.py            # HTML 预览
-├── references/                    # 文案+配图知识库
+│   ├── xiaohongshu_pipeline.py
+│   ├── gen_image.py
+│   ├── comfyui_video.py
+│   └── preview_post.py
+├── references/
 │   ├── xiaohongshu-copywriting.md
 │   └── xiaohongshu-image-prompts.md
-├── output/                        # 输出
-│   ├── posts/                     # 草稿
-│   ├── images/                    # 配图
-│   └── videos/                    # 视频
+├── output/
+│   ├── posts/
+│   ├── images/
+│   └── videos/
 └── docs/
-    └── hermes-integration.md      # Hermes 调用文档
+    ├── hermes-integration.md
+    └── usage-guide.md
 ```
 
----
+## 快速开始
 
-## 快速上手
-
-### 环境
-
-需要 Python 3.8+，和一个硅基流动的 API Key（注册：https://cloud.siliconflow.cn/）。
+需要 Python 3.8+，以及一个硅基流动的 API Key（https://cloud.siliconflow.cn/）。
 
 ```bash
 git clone https://github.com/Lry0305/multi-platform-agent.git
@@ -76,132 +69,87 @@ cd multi-platform-agent
 bash setup.sh
 ```
 
-完事编辑 `.env`，把 API Key 填进去。
-
-### 跑一条试试
+然后编辑 .env 填入 SILICONFLOW_API_KEY。
 
 ```bash
-python3 agent.py --topic "用了两周的护手霜，手真的不干了" \
-  --platform xiaohongshu \
-  --category recommend \
-  --vibe 温暖 \
-  --images 2
+python3 agent.py --topic "用了两周的护手霜" --platform xiaohongshu --category recommend --vibe 温暖 --images 2
 ```
 
-输出：文案（标题+正文+标签）+ 配图 2 张 + 存草稿。
+## 功能说明
 
-也可以交互模式，像聊天一样用：
-
-```bash
-python3 agent.py --interactive
-```
-
----
-
-## 功能清单
-
-### 文案生成
+### 文案
 
 | 参数 | 说明 |
 |------|------|
-| `--topic` | 输入主题 |
-| `--category` | 内容方向：recommend / checkin / daily / knowledge / compare / collection / anti_haul / tutorial / unboxing / qa / story |
-| `--extra` | 额外写作指令，比如"语气更活泼" |
-| `--dry-run` | 只出文案，不出图 |
+| --topic | 输入主题 |
+| --category | 内容方向。可选：recommend, checkin, daily, knowledge, compare, collection, anti_haul, tutorial, unboxing, qa, story |
+| --extra | 额外写作指令 |
+| --dry-run | 纯文案，不出图 |
 
 ### 配图
 
 | 参数 | 说明 |
 |------|------|
-| `--images` | 数量 1-3 张 |
-| `--vibe` | 氛围：温暖 / 清新 / 复古 / 高级 / 活泼 / 治愈 |
-| `--model` | 模型：默认 Qwen/Qwen-Image，可选 Kwai-Kolors/Kolors 等 |
-| `--no-image` | 纯文案不出图 |
+| --images | 数量，最多 3 张 |
+| --vibe | 氛围：温暖、清新、复古、高级、活泼、治愈 |
+| --model | 生成模型，默认 Qwen/Qwen-Image |
+| --no-image | 不出图 |
 
 ### 多平台
 
-| 参数 | 说明 |
-|------|------|
-| `--platform xiaohongshu` | 小红书，默认 |
-| `--platform wechat --style tech` | 公众号，可选手法风格 |
-| `--platform douyin` | 抖音 |
+```bash
+python3 agent.py --topic "..." --platform xiaohongshu
+python3 agent.py --topic "..." --platform wechat --style tech
+python3 agent.py --topic "..." --platform douyin
+```
 
-### 视频（需 ComfyUI 服务）
+### 视频（需要 ComfyUI）
 
 ```bash
-python3 scripts/comfyui_video.py \
-  --host "http://AutoDL实例IP:8188" \
-  --prompt "护手霜在阳光下" \
-  --model wan \
-  --output output/videos
+python3 scripts/comfyui_video.py --host "http://<AutoDL实例IP>:8188" --prompt "..." --model wan
 ```
 
 ### 管线脚本
 
 ```bash
-# 单篇完整生成
-python3 scripts/xiaohongshu_pipeline.py generate \
-  --title "标题" --file content.txt --category recommend --vibe 温暖 --images 2
-
-# 批量生成（JSON 配置）
+python3 scripts/xiaohongshu_pipeline.py generate --title "标题" --file content.txt --category recommend --vibe 温暖 --images 2
 python3 scripts/xiaohongshu_pipeline.py batch recipes.json
-
-# 看草稿
 python3 scripts/xiaohongshu_pipeline.py list
 python3 scripts/xiaohongshu_pipeline.py view draft_xxx.md
 ```
 
----
+### 交互模式
 
-## Hermes 怎么调
-
-Hermes 在自己那边跑命令行，不用改这个项目的代码。
-
-```python
-# Hermes 里这样调
-import subprocess
-
-# 出帖子
-subprocess.run([
-    "python3", "agent.py",
-    "--topic", "好用的护手霜",
-    "--platform", "xiaohongshu",
-    "--images", "2"
-])
-
-# 出视频（连 AutoDL）
-subprocess.run([
-    "python3", "scripts/comfyui_video.py",
-    "--host", "http://AutoDL_IP:8188",
-    "--prompt", "护手霜产品展示",
-    "--model", "wan"
-])
+```bash
+python3 agent.py --interactive
 ```
 
-Hermes 和这个项目放在同一台机器上，或者把项目路径写绝对地址就行。完整例子见 `docs/hermes-integration.md`。
+然后按提示输入内容、选平台和风格。
 
----
+## Hermes 集成
 
-## ComfyUI 视频（备查）
+其他智能体直接调命令行即可：
 
-AutoDL 上有一台 RTX 5090 的实例，装的 ComfyUI 镜像。
-要出视频时开机，拿到 IP 端口，在命令里 `--host` 指定就行。
+```python
+import subprocess
+subprocess.run(["python3", "agent.py", "--topic", "...", "--platform", "xiaohongshu", "--images", "2"])
+subprocess.run(["python3", "scripts/comfyui_video.py", "--host", "http://<IP>:8188", "--prompt", "..."])
+```
 
-已有实例信息：
+详细说明见 docs/hermes-integration.md。
+
+## ComfyUI 实例
+
+AutoDL 上有一台 RTX 5090 的实例，安装了 ComfyUI。演示前开机，获取 IP 和端口，在命令中通过 --host 指定。
+
 - 实例 ID：611b489072-57ec2218
 - GPU：RTX 5090 × 1
-- 镜像：comfyanonymous/ComfyUI （已有）
-- 费用：￥2.78/时
+- 费用：约 2.78 元/小时
 
-这台实例目前关机状态，演示前开机即可。
+## 注意
 
----
-
-## 一些说明
-
-- 配图走了硅基流动的文生图 API，日常够用
-- 公众号那条线已经接好了微信 API，配好 AppID 和 Secret 就能自动发
-- 小红书和抖音目前只能排好版等你自己发（平台 API 限制）
-- 视频要走 ComfyUI，AutoDL 实例开机才能用
-- 草稿在 `output/posts/`，纯 Markdown，要改直接改
-- API Key 放 `.env`，别写代码里
+- 图片通过硅基流动 API 生成
+- 公众号已对接微信 API，配置好 AppID 和 Secret 后可自动发布
+- 小红书和抖音目前只输出排版后的文本，需手动粘贴
+- 视频需要 AutoDL 实例开机
+- 草稿保存在 output/posts/，纯 Markdown
